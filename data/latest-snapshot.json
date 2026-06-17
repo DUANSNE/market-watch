@@ -1,0 +1,222 @@
+{
+  "generatedAt": "2026-06-17T02:33:58.040Z",
+  "analysisMode": "local",
+  "finance": [
+    {
+      "id": "sp500",
+      "name": "S&P 500",
+      "market": "美股",
+      "category": "指数",
+      "price": 7511.35009765625,
+      "currency": "USD",
+      "change": -42.94,
+      "changePercent": -0.57,
+      "high": 7564.9599609375,
+      "low": 7508.68017578125,
+      "thesis": "观察全球风险偏好与大型权重股走势",
+      "source": "Yahoo Finance"
+    },
+    {
+      "id": "nasdaq",
+      "name": "Nasdaq",
+      "market": "美股",
+      "category": "指数",
+      "price": 26376.34375,
+      "currency": "USD",
+      "change": -307.6,
+      "changePercent": -1.15,
+      "high": 26788.6171875,
+      "low": 26369.388671875,
+      "thesis": "观察成长科技风格的强弱变化",
+      "source": "Yahoo Finance"
+    },
+    {
+      "id": "hang-seng",
+      "name": "Hang Seng",
+      "market": "港股",
+      "category": "指数",
+      "price": 24447.8203125,
+      "currency": "HKD",
+      "change": -46.13,
+      "changePercent": -0.19,
+      "high": 24560.189453125,
+      "low": 24436.349609375,
+      "thesis": "跟踪中概与亚洲市场风险偏好",
+      "source": "Yahoo Finance"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "market": "美股",
+      "category": "个股",
+      "price": 299.239990234375,
+      "currency": "USD",
+      "change": 2.82,
+      "changePercent": 0.95,
+      "high": 300.4800109863281,
+      "low": 293.9700012207031,
+      "thesis": "观察大型科技龙头与消费电子景气度",
+      "source": "Yahoo Finance"
+    }
+  ],
+  "content": [
+    {
+      "id": "sec",
+      "name": "SEC 新闻稿",
+      "homepage": "https://www.sec.gov/news/pressreleases",
+      "items": [
+        {
+          "title": "SEC Appoints John Moses as Director of the Office of Investor Education and Assistance",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-55-sec-appoints-john-moses-director-office-investor-education-assistance",
+          "publishedAt": "Fri, 12 Jun 2026 12:30:00 -0400",
+          "summary": "The Securities and Exchange Commission has appointed John Moses as Director of the agency’s Office of Investor Education and Assistance, which provides services…"
+        },
+        {
+          "title": "SEC Proposes Rescission of Regulation NMS Rules 611 and 610(e)",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-54-sec-proposes-rescission-regulation-nms-rules-611-610e",
+          "publishedAt": "Thu, 11 Jun 2026 10:55:00 -0400",
+          "summary": "The Securities and Exchange Commission today proposed amendments to rescind Rules 611 and 610(e) of Regulation NMS.“After two decades of Rule 611, it is high ti…"
+        },
+        {
+          "title": "SEC Establishes Joint Data Standards as Required Under the Financial Data Transparency Act of 2022",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-53-sec-establishes-joint-data-standards-required-under-financial-data-transparency-act-2022",
+          "publishedAt": "Mon, 08 Jun 2026 10:36:00 -0400",
+          "summary": "The U.S. Securities and Exchange Commission established joint data standards under the Financial Data Transparency Act of 2022. The final rule establishes techn…"
+        },
+        {
+          "title": "SEC Announces New Members of Small Business Capital Formation Advisory Committee",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-52-sec-announces-new-members-small-business-capital-formation-advisory-committee",
+          "publishedAt": "Thu, 04 Jun 2026 14:39:49 -0400",
+          "summary": "The Securities and Exchange Commission today announced five new members of the&nbsp;Small Business Capital Formation Advisory Committee. The new members were ap…"
+        },
+        {
+          "title": "SEC Publishes Draft Strategic Plan for Public Comment",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-51-sec-publishes-draft-strategic-plan-public-comment",
+          "publishedAt": "Tue, 02 Jun 2026 10:30:00 -0400",
+          "summary": "The Securities and Exchange Commission today published a&nbsp;Draft Strategic Plan&nbsp;that focuses on returning the agency to the core mission set by Congress…"
+        },
+        {
+          "title": "SEC Announces Four New Members of Investor Advisory Committee",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-50-sec-announces-four-new-members-investor-advisory-committee",
+          "publishedAt": "Mon, 01 Jun 2026 12:39:44 -0400",
+          "summary": "The Securities and Exchange Commission today announced&nbsp;four&nbsp;new members to fill vacancies on its Investor Advisory Committee.&nbsp;Three of the four n…"
+        }
+      ]
+    },
+    {
+      "id": "federal-reserve",
+      "name": "美联储新闻",
+      "homepage": "https://www.federalreserve.gov/newsevents.htm",
+      "items": [
+        {
+          "title": "Federal Reserve Board announces final rule that establishes data standards for certain information collections",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260611a.htm",
+          "publishedAt": "Thu, 11 Jun 2026 15:00:00 GMT",
+          "summary": "Federal Reserve Board announces final rule that establishes data standards for certain information collections"
+        },
+        {
+          "title": "Federal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT.",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260609a.htm",
+          "publishedAt": "Tue, 9 Jun 2026 20:00:00 GMT",
+          "summary": "Federal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT."
+        },
+        {
+          "title": "Agencies remove additional references to reputation risk",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260602a.htm",
+          "publishedAt": "Tue, 2 Jun 2026 15:00:00 GMT",
+          "summary": "Agencies remove additional references to reputation risk"
+        },
+        {
+          "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
+          "publishedAt": "Thu, 28 May 2026 15:00:00 GMT",
+          "summary": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank"
+        },
+        {
+          "title": "Minutes of the Board&#39;s discount rate meeting on April 20 and 29, 2026",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm",
+          "publishedAt": "Tue, 26 May 2026 18:00:00 GMT",
+          "summary": "Minutes of the Board&#39;s discount rate meeting on April 20 and 29, 2026"
+        },
+        {
+          "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
+          "publishedAt": "Fri, 22 May 2026 20:15:00 GMT",
+          "summary": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimo…"
+        }
+      ]
+    },
+    {
+      "id": "hn-finance",
+      "name": "Hacker News 金融科技话题",
+      "homepage": "https://news.ycombinator.com/",
+      "items": [
+        {
+          "title": "Southpay Ledger – self-serve double-entry ledger API for fintech products",
+          "link": "https://www.southpay.io/ledger/",
+          "publishedAt": "Thu, 11 Jun 2026 15:58:17 +0000",
+          "summary": "Article URL: https://www.southpay.io/ledger/ Comments URL: https://news.ycombinator.com/item?id=48492140 Points: 1 # Comments: 0"
+        },
+        {
+          "title": "Why Britain's fintech stars faded",
+          "link": "https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5",
+          "publishedAt": "Fri, 29 May 2026 10:57:01 +0000",
+          "summary": "Article URL: https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5 Comments URL: https://news.ycombinator.com/item?id=48321522 Points: 3 # Comments: 2"
+        },
+        {
+          "title": "Have I Been Pwned: Colombian fintech company leaks 34.5M accounts in March 2026",
+          "link": "https://haveibeenpwned.com/Breach/ADDI",
+          "publishedAt": "Tue, 19 May 2026 01:58:49 +0000",
+          "summary": "Article URL: https://haveibeenpwned.com/Breach/ADDI Comments URL: https://news.ycombinator.com/item?id=48188363 Points: 4 # Comments: 0"
+        },
+        {
+          "title": "I want to create fintech in Latam, someone with experience can guide me?",
+          "link": "https://news.ycombinator.com/item?id=48156658",
+          "publishedAt": "Sat, 16 May 2026 03:49:25 +0000",
+          "summary": "I need someone with expertise to guide with some law issues in Argentina, some forms with CNV I have to complete. Comments URL: https://news.ycombinator.com/ite…"
+        },
+        {
+          "title": "Vairav Fintech Threat Index",
+          "link": "https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026",
+          "publishedAt": "Tue, 07 Apr 2026 14:08:58 +0000",
+          "summary": "Article URL: https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026 Comments URL: https://news.ycombinator.com/item?id=47675643 Points: 1 # Comments: 0"
+        },
+        {
+          "title": "Sensational news. Fintech has published banking secrets for public access",
+          "link": "https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/",
+          "publishedAt": "Wed, 11 Mar 2026 19:49:41 +0000",
+          "summary": "Article URL: https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/ Comments URL: https://news.ycombinator.com/item?id=47340352 Po…"
+        }
+      ]
+    }
+  ],
+  "insights": [
+    {
+      "title": "Nasdaq 是今日最大波动来源",
+      "body": "Nasdaq 今日变动 -1.15%。如果它代表的是你重点观察的风格或资产链条，通常值得作为今天复盘的第一入口。",
+      "confidence": "中",
+      "tags": [
+        "美股",
+        "指数"
+      ]
+    },
+    {
+      "title": "市场分歧仍在扩大",
+      "body": "下跌标的数量偏多，短期情绪更容易受到政策、盈利或宏观变量扰动。",
+      "confidence": "中",
+      "tags": [
+        "市场情绪",
+        "日更"
+      ]
+    },
+    {
+      "title": "最新内容更新可作为行情解释线索",
+      "body": "最近抓到的一条内容是“SEC Appoints John Moses as Director of the Office of Investor Education and Assistance”。把事件流和价格变化放在一起看，更容易判断今天是消息驱动，还是纯资金风格切换。",
+      "confidence": "中",
+      "tags": [
+        "内容跟踪",
+        "事件驱动"
+      ]
+    }
+  ]
+}

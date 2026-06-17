@@ -1,0 +1,64 @@
+{
+  "site": {
+    "title": "Daily Market Watch",
+    "subtitle": "你自己的金融与内容追踪站",
+    "refreshCadence": "daily"
+  },
+  "financeTargets": [
+    {
+      "id": "sp500",
+      "name": "S&P 500",
+      "symbol": "^GSPC",
+      "market": "美股",
+      "category": "指数",
+      "thesis": "观察全球风险偏好与大型权重股走势"
+    },
+    {
+      "id": "nasdaq",
+      "name": "Nasdaq",
+      "symbol": "^IXIC",
+      "market": "美股",
+      "category": "指数",
+      "thesis": "观察成长科技风格的强弱变化"
+    },
+    {
+      "id": "hang-seng",
+      "name": "Hang Seng",
+      "symbol": "^HSI",
+      "market": "港股",
+      "category": "指数",
+      "thesis": "跟踪中概与亚洲市场风险偏好"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "symbol": "AAPL",
+      "market": "美股",
+      "category": "个股",
+      "thesis": "观察大型科技龙头与消费电子景气度"
+    }
+  ],
+  "contentTargets": [
+    {
+      "id": "sec",
+      "name": "SEC 新闻稿",
+      "kind": "rss",
+      "feedUrl": "https://www.sec.gov/news/pressreleases.rss",
+      "homepage": "https://www.sec.gov/news/pressreleases"
+    },
+    {
+      "id": "federal-reserve",
+      "name": "美联储新闻",
+      "kind": "rss",
+      "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
+      "homepage": "https://www.federalreserve.gov/newsevents.htm"
+    },
+    {
+      "id": "hn-finance",
+      "name": "Hacker News 金融科技话题",
+      "kind": "rss",
+      "feedUrl": "https://hnrss.org/newest?q=fintech",
+      "homepage": "https://news.ycombinator.com/"
+    }
+  ]
+}
