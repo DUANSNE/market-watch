@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-17T02:33:58.040Z",
+  "generatedAt": "2026-06-18T01:30:56.724Z",
   "analysisMode": "local",
   "finance": [
     {
@@ -7,12 +7,12 @@
       "name": "S&P 500",
       "market": "美股",
       "category": "指数",
-      "price": 7511.35009765625,
+      "price": 7420.10009765625,
       "currency": "USD",
-      "change": -42.94,
-      "changePercent": -0.57,
-      "high": 7564.9599609375,
-      "low": 7508.68017578125,
+      "change": -91.25,
+      "changePercent": -1.21,
+      "high": 7532.169921875,
+      "low": 7402.60986328125,
       "thesis": "观察全球风险偏好与大型权重股走势",
       "source": "Yahoo Finance"
     },
@@ -21,12 +21,12 @@
       "name": "Nasdaq",
       "market": "美股",
       "category": "指数",
-      "price": 26376.34375,
+      "price": 26021.65625,
       "currency": "USD",
-      "change": -307.6,
-      "changePercent": -1.15,
-      "high": 26788.6171875,
-      "low": 26369.388671875,
+      "change": -354.68,
+      "changePercent": -1.34,
+      "high": 26511.5546875,
+      "low": 25960.41015625,
       "thesis": "观察成长科技风格的强弱变化",
       "source": "Yahoo Finance"
     },
@@ -35,12 +35,12 @@
       "name": "Hang Seng",
       "market": "港股",
       "category": "指数",
-      "price": 24447.8203125,
+      "price": 24493.94921875,
       "currency": "HKD",
-      "change": -46.13,
-      "changePercent": -0.19,
-      "high": 24560.189453125,
-      "low": 24436.349609375,
+      "change": -348.72,
+      "changePercent": -1.4,
+      "high": 24844.98046875,
+      "low": 24378.689453125,
       "thesis": "跟踪中概与亚洲市场风险偏好",
       "source": "Yahoo Finance"
     },
@@ -49,12 +49,12 @@
       "name": "Apple",
       "market": "美股",
       "category": "个股",
-      "price": 299.239990234375,
+      "price": 295.95001220703125,
       "currency": "USD",
-      "change": 2.82,
-      "changePercent": 0.95,
-      "high": 300.4800109863281,
-      "low": 293.9700012207031,
+      "change": -3.29,
+      "changePercent": -1.1,
+      "high": 302.07000732421875,
+      "low": 294.3800048828125,
       "thesis": "观察大型科技龙头与消费电子景气度",
       "source": "Yahoo Finance"
     }
@@ -109,6 +109,18 @@
       "homepage": "https://www.federalreserve.gov/newsevents.htm",
       "items": [
         {
+          "title": "Federal Reserve issues FOMC statement",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+          "publishedAt": "Wed, 17 Jun 2026 18:00:00 GMT",
+          "summary": "Federal Reserve issues FOMC statement"
+        },
+        {
+          "title": "Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm",
+          "publishedAt": "Wed, 17 Jun 2026 18:00:00 GMT",
+          "summary": "Federal Reserve Board and Federal Open Market Committee release economic projections from the June 16-17 FOMC meeting"
+        },
+        {
           "title": "Federal Reserve Board announces final rule that establishes data standards for certain information collections",
           "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260611a.htm",
           "publishedAt": "Thu, 11 Jun 2026 15:00:00 GMT",
@@ -131,72 +143,17 @@
           "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
           "publishedAt": "Thu, 28 May 2026 15:00:00 GMT",
           "summary": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank"
-        },
-        {
-          "title": "Minutes of the Board&#39;s discount rate meeting on April 20 and 29, 2026",
-          "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260526a.htm",
-          "publishedAt": "Tue, 26 May 2026 18:00:00 GMT",
-          "summary": "Minutes of the Board&#39;s discount rate meeting on April 20 and 29, 2026"
-        },
-        {
-          "title": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimously selects Warsh as its chairman",
-          "link": "https://www.federalreserve.gov/newsevents/pressreleases/other20260522a.htm",
-          "publishedAt": "Fri, 22 May 2026 20:15:00 GMT",
-          "summary": "Kevin Warsh takes oath of office as chairman and a member of the Board of Governors of the Federal Reserve System, and the Federal Open Market Committee unanimo…"
-        }
-      ]
-    },
-    {
-      "id": "hn-finance",
-      "name": "Hacker News 金融科技话题",
-      "homepage": "https://news.ycombinator.com/",
-      "items": [
-        {
-          "title": "Southpay Ledger – self-serve double-entry ledger API for fintech products",
-          "link": "https://www.southpay.io/ledger/",
-          "publishedAt": "Thu, 11 Jun 2026 15:58:17 +0000",
-          "summary": "Article URL: https://www.southpay.io/ledger/ Comments URL: https://news.ycombinator.com/item?id=48492140 Points: 1 # Comments: 0"
-        },
-        {
-          "title": "Why Britain's fintech stars faded",
-          "link": "https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5",
-          "publishedAt": "Fri, 29 May 2026 10:57:01 +0000",
-          "summary": "Article URL: https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5 Comments URL: https://news.ycombinator.com/item?id=48321522 Points: 3 # Comments: 2"
-        },
-        {
-          "title": "Have I Been Pwned: Colombian fintech company leaks 34.5M accounts in March 2026",
-          "link": "https://haveibeenpwned.com/Breach/ADDI",
-          "publishedAt": "Tue, 19 May 2026 01:58:49 +0000",
-          "summary": "Article URL: https://haveibeenpwned.com/Breach/ADDI Comments URL: https://news.ycombinator.com/item?id=48188363 Points: 4 # Comments: 0"
-        },
-        {
-          "title": "I want to create fintech in Latam, someone with experience can guide me?",
-          "link": "https://news.ycombinator.com/item?id=48156658",
-          "publishedAt": "Sat, 16 May 2026 03:49:25 +0000",
-          "summary": "I need someone with expertise to guide with some law issues in Argentina, some forms with CNV I have to complete. Comments URL: https://news.ycombinator.com/ite…"
-        },
-        {
-          "title": "Vairav Fintech Threat Index",
-          "link": "https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026",
-          "publishedAt": "Tue, 07 Apr 2026 14:08:58 +0000",
-          "summary": "Article URL: https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026 Comments URL: https://news.ycombinator.com/item?id=47675643 Points: 1 # Comments: 0"
-        },
-        {
-          "title": "Sensational news. Fintech has published banking secrets for public access",
-          "link": "https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/",
-          "publishedAt": "Wed, 11 Mar 2026 19:49:41 +0000",
-          "summary": "Article URL: https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/ Comments URL: https://news.ycombinator.com/item?id=47340352 Po…"
         }
       ]
     }
   ],
   "insights": [
     {
-      "title": "Nasdaq 是今日最大波动来源",
-      "body": "Nasdaq 今日变动 -1.15%。如果它代表的是你重点观察的风格或资产链条，通常值得作为今天复盘的第一入口。",
+      "title": "Hang Seng 是今日最大波动来源",
+      "body": "Hang Seng 今日变动 -1.40%。如果它代表的是你重点观察的风格或资产链条，通常值得作为今天复盘的第一入口。",
       "confidence": "中",
       "tags": [
-        "美股",
+        "港股",
         "指数"
       ]
     },
