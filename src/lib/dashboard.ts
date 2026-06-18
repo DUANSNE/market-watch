@@ -1,6 +1,13 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 
+export type HistoryPoint = {
+  /** Unix 毫秒时间戳 */
+  timestamp: number;
+  /** 当日收盘价 */
+  close: number;
+};
+
 export type FinanceItem = {
   id: string;
   name: string;
@@ -14,6 +21,8 @@ export type FinanceItem = {
   low?: number;
   thesis?: string;
   source?: string;
+  /** 近 10 个交易日历史收盘序列（画趋势图用） */
+  history?: HistoryPoint[];
 };
 
 export type ContentItem = {
@@ -93,12 +102,6 @@ function parseSnapshot(raw: string): DashboardSnapshot {
   };
 }
 
-/**
- * 获取 Dashboard 快照
- *
- * - Vercel 环境：调用实时 API（本地文件不可写，每次请求实时抓取）
- * - VPS/Docker 环境：读取本地 latest-snapshot.json（由 cron 定时更新）
- */
 export async function getDashboardSnapshot(): Promise<DashboardSnapshot> {
   const isVercel = process.env.VERCEL === "1";
 
@@ -107,15 +110,11 @@ export async function getDashboardSnapshot(): Promise<DashboardSnapshot> {
       const origin = process.env.VERCEL_URL
         ? `https://${process.env.VERCEL_URL}`
         : "http://localhost:3000";
-      const response = await fetch(`${origin}/api/snapshot`, {
-        cache: "no-store",
-      });
+      const response = await fetch(`${origin}/api/snapshot`, { cache: "no-store" });
       if (!response.ok) throw new Error(`API 返回 ${response.status}`);
-      const data = await response.json();
-      return data as DashboardSnapshot;
+      return (await response.json()) as DashboardSnapshot;
     } catch (error) {
       console.warn("Vercel 实时 API 不可用，尝试读取本地快照:", error);
-      // 降级：尝试读取本地文件（部署时带入的快照）
       try {
         const raw = await fs.readFile(snapshotPath, "utf8");
         return parseSnapshot(raw);
@@ -125,7 +124,6 @@ export async function getDashboardSnapshot(): Promise<DashboardSnapshot> {
     }
   }
 
-  // 非 Vercel 环境：读取本地文件
   try {
     const raw = await fs.readFile(snapshotPath, "utf8");
     return parseSnapshot(raw);
@@ -168,10 +166,8 @@ export function formatDateTime(value: string) {
 
 export function getMarketTone(finance: FinanceItem[]) {
   if (!finance.length) return "暂无市场快照";
-
   const rising = finance.filter((item) => item.changePercent > 0).length;
   const falling = finance.filter((item) => item.changePercent < 0).length;
-
   if (rising >= Math.max(2, falling + 1)) return "偏积极";
   if (falling >= Math.max(2, rising + 1)) return "偏谨慎";
   return "分化中";
@@ -190,10 +186,6 @@ export function getSummaryText(snapshot: DashboardSnapshot) {
     (total, source) => total + source.items.length,
     0,
   );
-
-  if (!topMover) {
-    return "当前还没有可展示的追踪数据，先运行一次更新脚本即可生成首页内容。";
-  }
-
+  if (!topMover) return "当前还没有可展示的追踪数据，先运行一次更新脚本即可生成首页内容。";
   return `当前市场情绪${tone}。波动最大的追踪对象是 ${topMover.name}，日内变动 ${formatSignedPercent(topMover.changePercent)}。站内同时汇总了 ${feedCount} 条内容更新，方便你把行情、政策和站点动态放在同一个界面里一起判断。`;
 }

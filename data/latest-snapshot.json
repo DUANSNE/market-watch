@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-18T01:30:56.724Z",
+  "generatedAt": "2026-06-18T01:38:23.098Z",
   "analysisMode": "local",
   "finance": [
     {
       "id": "sp500",
       "name": "S&P 500",
-      "market": "美股",
+      "market": "🇺🇸 美股",
       "category": "指数",
       "price": 7420.10009765625,
       "currency": "USD",
@@ -13,13 +13,183 @@
       "changePercent": -1.21,
       "high": 7532.169921875,
       "low": 7402.60986328125,
-      "thesis": "观察全球风险偏好与大型权重股走势",
-      "source": "Yahoo Finance"
+      "thesis": "美国大盘基准，全球风险偏好风向标",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776691800000,
+          "close": 7109.14
+        },
+        {
+          "timestamp": 1776778200000,
+          "close": 7064.01
+        },
+        {
+          "timestamp": 1776864600000,
+          "close": 7137.9
+        },
+        {
+          "timestamp": 1776951000000,
+          "close": 7108.4
+        },
+        {
+          "timestamp": 1777037400000,
+          "close": 7165.08
+        },
+        {
+          "timestamp": 1777296600000,
+          "close": 7173.91
+        },
+        {
+          "timestamp": 1777383000000,
+          "close": 7138.8
+        },
+        {
+          "timestamp": 1777469400000,
+          "close": 7135.95
+        },
+        {
+          "timestamp": 1777555800000,
+          "close": 7209.01
+        },
+        {
+          "timestamp": 1777642200000,
+          "close": 7230.12
+        },
+        {
+          "timestamp": 1777901400000,
+          "close": 7200.75
+        },
+        {
+          "timestamp": 1777987800000,
+          "close": 7259.22
+        },
+        {
+          "timestamp": 1778074200000,
+          "close": 7365.12
+        },
+        {
+          "timestamp": 1778160600000,
+          "close": 7337.11
+        },
+        {
+          "timestamp": 1778247000000,
+          "close": 7398.93
+        },
+        {
+          "timestamp": 1778506200000,
+          "close": 7412.84
+        },
+        {
+          "timestamp": 1778592600000,
+          "close": 7400.96
+        },
+        {
+          "timestamp": 1778679000000,
+          "close": 7444.25
+        },
+        {
+          "timestamp": 1778765400000,
+          "close": 7501.24
+        },
+        {
+          "timestamp": 1778851800000,
+          "close": 7408.5
+        },
+        {
+          "timestamp": 1779111000000,
+          "close": 7403.05
+        },
+        {
+          "timestamp": 1779197400000,
+          "close": 7353.61
+        },
+        {
+          "timestamp": 1779283800000,
+          "close": 7432.97
+        },
+        {
+          "timestamp": 1779370200000,
+          "close": 7445.72
+        },
+        {
+          "timestamp": 1779456600000,
+          "close": 7473.47
+        },
+        {
+          "timestamp": 1779802200000,
+          "close": 7519.12
+        },
+        {
+          "timestamp": 1779888600000,
+          "close": 7520.36
+        },
+        {
+          "timestamp": 1779975000000,
+          "close": 7563.63
+        },
+        {
+          "timestamp": 1780061400000,
+          "close": 7580.06
+        },
+        {
+          "timestamp": 1780320600000,
+          "close": 7599.96
+        },
+        {
+          "timestamp": 1780407000000,
+          "close": 7609.78
+        },
+        {
+          "timestamp": 1780493400000,
+          "close": 7553.68
+        },
+        {
+          "timestamp": 1780579800000,
+          "close": 7584.31
+        },
+        {
+          "timestamp": 1780666200000,
+          "close": 7383.74
+        },
+        {
+          "timestamp": 1780925400000,
+          "close": 7405.73
+        },
+        {
+          "timestamp": 1781011800000,
+          "close": 7386.65
+        },
+        {
+          "timestamp": 1781098200000,
+          "close": 7266.99
+        },
+        {
+          "timestamp": 1781184600000,
+          "close": 7394.3
+        },
+        {
+          "timestamp": 1781271000000,
+          "close": 7431.46
+        },
+        {
+          "timestamp": 1781530200000,
+          "close": 7554.29
+        },
+        {
+          "timestamp": 1781616600000,
+          "close": 7511.35
+        },
+        {
+          "timestamp": 1781703000000,
+          "close": 7420.1
+        }
+      ]
     },
     {
       "id": "nasdaq",
       "name": "Nasdaq",
-      "market": "美股",
+      "market": "🇺🇸 美股",
       "category": "指数",
       "price": 26021.65625,
       "currency": "USD",
@@ -27,27 +197,367 @@
       "changePercent": -1.34,
       "high": 26511.5546875,
       "low": 25960.41015625,
-      "thesis": "观察成长科技风格的强弱变化",
-      "source": "Yahoo Finance"
+      "thesis": "成长科技风格，AI 与互联网景气度",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776691800000,
+          "close": 24404.39
+        },
+        {
+          "timestamp": 1776778200000,
+          "close": 24259.96
+        },
+        {
+          "timestamp": 1776864600000,
+          "close": 24657.57
+        },
+        {
+          "timestamp": 1776951000000,
+          "close": 24438.5
+        },
+        {
+          "timestamp": 1777037400000,
+          "close": 24836.6
+        },
+        {
+          "timestamp": 1777296600000,
+          "close": 24887.1
+        },
+        {
+          "timestamp": 1777383000000,
+          "close": 24663.8
+        },
+        {
+          "timestamp": 1777469400000,
+          "close": 24673.24
+        },
+        {
+          "timestamp": 1777555800000,
+          "close": 24892.31
+        },
+        {
+          "timestamp": 1777642200000,
+          "close": 25114.44
+        },
+        {
+          "timestamp": 1777901400000,
+          "close": 25067.8
+        },
+        {
+          "timestamp": 1777987800000,
+          "close": 25326.13
+        },
+        {
+          "timestamp": 1778074200000,
+          "close": 25838.94
+        },
+        {
+          "timestamp": 1778160600000,
+          "close": 25806.2
+        },
+        {
+          "timestamp": 1778247000000,
+          "close": 26247.08
+        },
+        {
+          "timestamp": 1778506200000,
+          "close": 26274.13
+        },
+        {
+          "timestamp": 1778592600000,
+          "close": 26088.2
+        },
+        {
+          "timestamp": 1778679000000,
+          "close": 26402.34
+        },
+        {
+          "timestamp": 1778765400000,
+          "close": 26635.22
+        },
+        {
+          "timestamp": 1778851800000,
+          "close": 26225.14
+        },
+        {
+          "timestamp": 1779111000000,
+          "close": 26090.73
+        },
+        {
+          "timestamp": 1779197400000,
+          "close": 25870.71
+        },
+        {
+          "timestamp": 1779283800000,
+          "close": 26270.36
+        },
+        {
+          "timestamp": 1779370200000,
+          "close": 26293.1
+        },
+        {
+          "timestamp": 1779456600000,
+          "close": 26343.97
+        },
+        {
+          "timestamp": 1779802200000,
+          "close": 26656.18
+        },
+        {
+          "timestamp": 1779888600000,
+          "close": 26674.73
+        },
+        {
+          "timestamp": 1779975000000,
+          "close": 26917.47
+        },
+        {
+          "timestamp": 1780061400000,
+          "close": 26972.62
+        },
+        {
+          "timestamp": 1780320600000,
+          "close": 27086.81
+        },
+        {
+          "timestamp": 1780407000000,
+          "close": 27093.9
+        },
+        {
+          "timestamp": 1780493400000,
+          "close": 26853.98
+        },
+        {
+          "timestamp": 1780579800000,
+          "close": 26830.96
+        },
+        {
+          "timestamp": 1780666200000,
+          "close": 25709.43
+        },
+        {
+          "timestamp": 1780925400000,
+          "close": 25929.66
+        },
+        {
+          "timestamp": 1781011800000,
+          "close": 25678.82
+        },
+        {
+          "timestamp": 1781098200000,
+          "close": 25169.5
+        },
+        {
+          "timestamp": 1781184600000,
+          "close": 25809.66
+        },
+        {
+          "timestamp": 1781271000000,
+          "close": 25888.84
+        },
+        {
+          "timestamp": 1781530200000,
+          "close": 26683.94
+        },
+        {
+          "timestamp": 1781616600000,
+          "close": 26376.34
+        },
+        {
+          "timestamp": 1781703000000,
+          "close": 26021.66
+        }
+      ]
     },
     {
-      "id": "hang-seng",
-      "name": "Hang Seng",
-      "market": "港股",
+      "id": "dow-jones",
+      "name": "Dow Jones",
+      "market": "🇺🇸 美股",
       "category": "指数",
-      "price": 24493.94921875,
-      "currency": "HKD",
-      "change": -348.72,
-      "changePercent": -1.4,
-      "high": 24844.98046875,
-      "low": 24378.689453125,
-      "thesis": "跟踪中概与亚洲市场风险偏好",
-      "source": "Yahoo Finance"
+      "price": 51492.55078125,
+      "currency": "USD",
+      "change": -507.12,
+      "changePercent": -0.98,
+      "high": 52281.19140625,
+      "low": 51392.578125,
+      "thesis": "传统工业蓝筹，经济周期敏感度",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776691800000,
+          "close": 49442.56
+        },
+        {
+          "timestamp": 1776778200000,
+          "close": 49149.38
+        },
+        {
+          "timestamp": 1776864600000,
+          "close": 49490.03
+        },
+        {
+          "timestamp": 1776951000000,
+          "close": 49310.32
+        },
+        {
+          "timestamp": 1777037400000,
+          "close": 49230.71
+        },
+        {
+          "timestamp": 1777296600000,
+          "close": 49167.79
+        },
+        {
+          "timestamp": 1777383000000,
+          "close": 49141.93
+        },
+        {
+          "timestamp": 1777469400000,
+          "close": 48861.81
+        },
+        {
+          "timestamp": 1777555800000,
+          "close": 49652.14
+        },
+        {
+          "timestamp": 1777642200000,
+          "close": 49499.27
+        },
+        {
+          "timestamp": 1777901400000,
+          "close": 48941.9
+        },
+        {
+          "timestamp": 1777987800000,
+          "close": 49298.25
+        },
+        {
+          "timestamp": 1778074200000,
+          "close": 49910.59
+        },
+        {
+          "timestamp": 1778160600000,
+          "close": 49596.97
+        },
+        {
+          "timestamp": 1778247000000,
+          "close": 49609.16
+        },
+        {
+          "timestamp": 1778506200000,
+          "close": 49704.47
+        },
+        {
+          "timestamp": 1778592600000,
+          "close": 49760.56
+        },
+        {
+          "timestamp": 1778679000000,
+          "close": 49693.2
+        },
+        {
+          "timestamp": 1778765400000,
+          "close": 50063.46
+        },
+        {
+          "timestamp": 1778851800000,
+          "close": 49526.17
+        },
+        {
+          "timestamp": 1779111000000,
+          "close": 49686.12
+        },
+        {
+          "timestamp": 1779197400000,
+          "close": 49363.88
+        },
+        {
+          "timestamp": 1779283800000,
+          "close": 50009.35
+        },
+        {
+          "timestamp": 1779370200000,
+          "close": 50285.66
+        },
+        {
+          "timestamp": 1779456600000,
+          "close": 50579.7
+        },
+        {
+          "timestamp": 1779802200000,
+          "close": 50461.68
+        },
+        {
+          "timestamp": 1779888600000,
+          "close": 50644.28
+        },
+        {
+          "timestamp": 1779975000000,
+          "close": 50668.97
+        },
+        {
+          "timestamp": 1780061400000,
+          "close": 51032.46
+        },
+        {
+          "timestamp": 1780320600000,
+          "close": 51078.88
+        },
+        {
+          "timestamp": 1780407000000,
+          "close": 51307.79
+        },
+        {
+          "timestamp": 1780493400000,
+          "close": 50687.07
+        },
+        {
+          "timestamp": 1780579800000,
+          "close": 51561.93
+        },
+        {
+          "timestamp": 1780666200000,
+          "close": 50866.78
+        },
+        {
+          "timestamp": 1780925400000,
+          "close": 50786.01
+        },
+        {
+          "timestamp": 1781011800000,
+          "close": 50872.11
+        },
+        {
+          "timestamp": 1781098200000,
+          "close": 49918.78
+        },
+        {
+          "timestamp": 1781184600000,
+          "close": 50848.75
+        },
+        {
+          "timestamp": 1781271000000,
+          "close": 51202.26
+        },
+        {
+          "timestamp": 1781530200000,
+          "close": 51671.03
+        },
+        {
+          "timestamp": 1781616600000,
+          "close": 51999.67
+        },
+        {
+          "timestamp": 1781703000000,
+          "close": 51492.55
+        }
+      ]
     },
     {
       "id": "apple",
       "name": "Apple",
-      "market": "美股",
+      "market": "🇺🇸 美股",
       "category": "个股",
       "price": 295.95001220703125,
       "currency": "USD",
@@ -55,8 +565,1258 @@
       "changePercent": -1.1,
       "high": 302.07000732421875,
       "low": 294.3800048828125,
-      "thesis": "观察大型科技龙头与消费电子景气度",
-      "source": "Yahoo Finance"
+      "thesis": "消费电子与科技龙头",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776691800000,
+          "close": 273.05
+        },
+        {
+          "timestamp": 1776778200000,
+          "close": 266.17
+        },
+        {
+          "timestamp": 1776864600000,
+          "close": 273.17
+        },
+        {
+          "timestamp": 1776951000000,
+          "close": 273.43
+        },
+        {
+          "timestamp": 1777037400000,
+          "close": 271.06
+        },
+        {
+          "timestamp": 1777296600000,
+          "close": 267.61
+        },
+        {
+          "timestamp": 1777383000000,
+          "close": 270.71
+        },
+        {
+          "timestamp": 1777469400000,
+          "close": 270.17
+        },
+        {
+          "timestamp": 1777555800000,
+          "close": 271.35
+        },
+        {
+          "timestamp": 1777642200000,
+          "close": 280.14
+        },
+        {
+          "timestamp": 1777901400000,
+          "close": 276.83
+        },
+        {
+          "timestamp": 1777987800000,
+          "close": 284.18
+        },
+        {
+          "timestamp": 1778074200000,
+          "close": 287.51
+        },
+        {
+          "timestamp": 1778160600000,
+          "close": 287.44
+        },
+        {
+          "timestamp": 1778247000000,
+          "close": 293.32
+        },
+        {
+          "timestamp": 1778506200000,
+          "close": 292.68
+        },
+        {
+          "timestamp": 1778592600000,
+          "close": 294.8
+        },
+        {
+          "timestamp": 1778679000000,
+          "close": 298.87
+        },
+        {
+          "timestamp": 1778765400000,
+          "close": 298.21
+        },
+        {
+          "timestamp": 1778851800000,
+          "close": 300.23
+        },
+        {
+          "timestamp": 1779111000000,
+          "close": 297.84
+        },
+        {
+          "timestamp": 1779197400000,
+          "close": 298.97
+        },
+        {
+          "timestamp": 1779283800000,
+          "close": 302.25
+        },
+        {
+          "timestamp": 1779370200000,
+          "close": 304.99
+        },
+        {
+          "timestamp": 1779456600000,
+          "close": 308.82
+        },
+        {
+          "timestamp": 1779802200000,
+          "close": 308.33
+        },
+        {
+          "timestamp": 1779888600000,
+          "close": 310.85
+        },
+        {
+          "timestamp": 1779975000000,
+          "close": 312.51
+        },
+        {
+          "timestamp": 1780061400000,
+          "close": 312.06
+        },
+        {
+          "timestamp": 1780320600000,
+          "close": 306.31
+        },
+        {
+          "timestamp": 1780407000000,
+          "close": 315.2
+        },
+        {
+          "timestamp": 1780493400000,
+          "close": 310.26
+        },
+        {
+          "timestamp": 1780579800000,
+          "close": 311.23
+        },
+        {
+          "timestamp": 1780666200000,
+          "close": 307.34
+        },
+        {
+          "timestamp": 1780925400000,
+          "close": 301.54
+        },
+        {
+          "timestamp": 1781011800000,
+          "close": 290.55
+        },
+        {
+          "timestamp": 1781098200000,
+          "close": 291.58
+        },
+        {
+          "timestamp": 1781184600000,
+          "close": 295.63
+        },
+        {
+          "timestamp": 1781271000000,
+          "close": 291.13
+        },
+        {
+          "timestamp": 1781530200000,
+          "close": 296.42
+        },
+        {
+          "timestamp": 1781616600000,
+          "close": 299.24
+        },
+        {
+          "timestamp": 1781703000000,
+          "close": 295.95
+        }
+      ]
+    },
+    {
+      "id": "nvidia",
+      "name": "Nvidia",
+      "market": "🇺🇸 美股",
+      "category": "个股",
+      "price": 204.64999389648438,
+      "currency": "USD",
+      "change": -2.76,
+      "changePercent": -1.33,
+      "high": 209.2100067138672,
+      "low": 203.4499969482422,
+      "thesis": "AI 算力核心，数据中心需求晴雨表",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776691800000,
+          "close": 202.06
+        },
+        {
+          "timestamp": 1776778200000,
+          "close": 199.88
+        },
+        {
+          "timestamp": 1776864600000,
+          "close": 202.5
+        },
+        {
+          "timestamp": 1776951000000,
+          "close": 199.64
+        },
+        {
+          "timestamp": 1777037400000,
+          "close": 208.27
+        },
+        {
+          "timestamp": 1777296600000,
+          "close": 216.61
+        },
+        {
+          "timestamp": 1777383000000,
+          "close": 213.17
+        },
+        {
+          "timestamp": 1777469400000,
+          "close": 209.25
+        },
+        {
+          "timestamp": 1777555800000,
+          "close": 199.57
+        },
+        {
+          "timestamp": 1777642200000,
+          "close": 198.45
+        },
+        {
+          "timestamp": 1777901400000,
+          "close": 198.48
+        },
+        {
+          "timestamp": 1777987800000,
+          "close": 196.5
+        },
+        {
+          "timestamp": 1778074200000,
+          "close": 207.83
+        },
+        {
+          "timestamp": 1778160600000,
+          "close": 211.5
+        },
+        {
+          "timestamp": 1778247000000,
+          "close": 215.2
+        },
+        {
+          "timestamp": 1778506200000,
+          "close": 219.44
+        },
+        {
+          "timestamp": 1778592600000,
+          "close": 220.78
+        },
+        {
+          "timestamp": 1778679000000,
+          "close": 225.83
+        },
+        {
+          "timestamp": 1778765400000,
+          "close": 235.74
+        },
+        {
+          "timestamp": 1778851800000,
+          "close": 225.32
+        },
+        {
+          "timestamp": 1779111000000,
+          "close": 222.32
+        },
+        {
+          "timestamp": 1779197400000,
+          "close": 220.61
+        },
+        {
+          "timestamp": 1779283800000,
+          "close": 223.47
+        },
+        {
+          "timestamp": 1779370200000,
+          "close": 219.51
+        },
+        {
+          "timestamp": 1779456600000,
+          "close": 215.33
+        },
+        {
+          "timestamp": 1779802200000,
+          "close": 214.86
+        },
+        {
+          "timestamp": 1779888600000,
+          "close": 212.6
+        },
+        {
+          "timestamp": 1779975000000,
+          "close": 214.25
+        },
+        {
+          "timestamp": 1780061400000,
+          "close": 211.14
+        },
+        {
+          "timestamp": 1780320600000,
+          "close": 224.36
+        },
+        {
+          "timestamp": 1780407000000,
+          "close": 222.82
+        },
+        {
+          "timestamp": 1780493400000,
+          "close": 214.75
+        },
+        {
+          "timestamp": 1780579800000,
+          "close": 218.66
+        },
+        {
+          "timestamp": 1780666200000,
+          "close": 205.1
+        },
+        {
+          "timestamp": 1780925400000,
+          "close": 208.64
+        },
+        {
+          "timestamp": 1781011800000,
+          "close": 208.19
+        },
+        {
+          "timestamp": 1781098200000,
+          "close": 200.42
+        },
+        {
+          "timestamp": 1781184600000,
+          "close": 204.87
+        },
+        {
+          "timestamp": 1781271000000,
+          "close": 205.19
+        },
+        {
+          "timestamp": 1781530200000,
+          "close": 212.45
+        },
+        {
+          "timestamp": 1781616600000,
+          "close": 207.41
+        },
+        {
+          "timestamp": 1781703000000,
+          "close": 204.65
+        }
+      ]
+    },
+    {
+      "id": "nikkei",
+      "name": "Nikkei 225",
+      "market": "🇯🇵 日本",
+      "category": "指数",
+      "price": 71288.2578125,
+      "currency": "JPY",
+      "change": 1386.01,
+      "changePercent": 1.98,
+      "high": 71398.578125,
+      "low": 70092.9375,
+      "thesis": "日股基准，亚太风险偏好与日元相关性",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776643200000,
+          "close": 58824.89
+        },
+        {
+          "timestamp": 1776729600000,
+          "close": 59349.17
+        },
+        {
+          "timestamp": 1776816000000,
+          "close": 59585.86
+        },
+        {
+          "timestamp": 1776902400000,
+          "close": 59140.23
+        },
+        {
+          "timestamp": 1776988800000,
+          "close": 59716.18
+        },
+        {
+          "timestamp": 1777248000000,
+          "close": 60537.36
+        },
+        {
+          "timestamp": 1777334400000,
+          "close": 59917.46
+        },
+        {
+          "timestamp": 1777507200000,
+          "close": 59284.92
+        },
+        {
+          "timestamp": 1777593600000,
+          "close": 59513.12
+        },
+        {
+          "timestamp": 1778112000000,
+          "close": 62833.84
+        },
+        {
+          "timestamp": 1778198400000,
+          "close": 62713.65
+        },
+        {
+          "timestamp": 1778457600000,
+          "close": 62417.88
+        },
+        {
+          "timestamp": 1778544000000,
+          "close": 62742.57
+        },
+        {
+          "timestamp": 1778630400000,
+          "close": 63272.11
+        },
+        {
+          "timestamp": 1778716800000,
+          "close": 62654.05
+        },
+        {
+          "timestamp": 1778803200000,
+          "close": 61409.29
+        },
+        {
+          "timestamp": 1779062400000,
+          "close": 60815.95
+        },
+        {
+          "timestamp": 1779148800000,
+          "close": 60550.59
+        },
+        {
+          "timestamp": 1779235200000,
+          "close": 59804.41
+        },
+        {
+          "timestamp": 1779321600000,
+          "close": 61684.14
+        },
+        {
+          "timestamp": 1779408000000,
+          "close": 63339.07
+        },
+        {
+          "timestamp": 1779667200000,
+          "close": 65158.19
+        },
+        {
+          "timestamp": 1779753600000,
+          "close": 64996.09
+        },
+        {
+          "timestamp": 1779840000000,
+          "close": 64999.41
+        },
+        {
+          "timestamp": 1779926400000,
+          "close": 64693.12
+        },
+        {
+          "timestamp": 1780012800000,
+          "close": 66329.5
+        },
+        {
+          "timestamp": 1780272000000,
+          "close": 66934.33
+        },
+        {
+          "timestamp": 1780358400000,
+          "close": 66734.24
+        },
+        {
+          "timestamp": 1780444800000,
+          "close": 68402.13
+        },
+        {
+          "timestamp": 1780531200000,
+          "close": 67470.69
+        },
+        {
+          "timestamp": 1780617600000,
+          "close": 66588.12
+        },
+        {
+          "timestamp": 1780876800000,
+          "close": 64024.6
+        },
+        {
+          "timestamp": 1780963200000,
+          "close": 65416.63
+        },
+        {
+          "timestamp": 1781049600000,
+          "close": 64179.27
+        },
+        {
+          "timestamp": 1781136000000,
+          "close": 64217.27
+        },
+        {
+          "timestamp": 1781222400000,
+          "close": 66020.04
+        },
+        {
+          "timestamp": 1781481600000,
+          "close": 69317.5
+        },
+        {
+          "timestamp": 1781568000000,
+          "close": 69404.5
+        },
+        {
+          "timestamp": 1781654400000,
+          "close": 69902.25
+        },
+        {
+          "timestamp": 1781740800000,
+          "close": 71288.26
+        }
+      ]
+    },
+    {
+      "id": "shanghai",
+      "name": "上证指数",
+      "market": "🇨🇳 中国 A 股",
+      "category": "指数",
+      "price": 4108.076171875,
+      "currency": "CNY",
+      "change": 16.18,
+      "changePercent": 0.4,
+      "high": 4109.9580078125,
+      "low": 4073.73193359375,
+      "thesis": "A 股大盘，政策敏感与宏观情绪",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776648600000,
+          "close": 4082.13
+        },
+        {
+          "timestamp": 1776735000000,
+          "close": 4085.08
+        },
+        {
+          "timestamp": 1776821400000,
+          "close": 4106.26
+        },
+        {
+          "timestamp": 1776907800000,
+          "close": 4093.25
+        },
+        {
+          "timestamp": 1776994200000,
+          "close": 4079.9
+        },
+        {
+          "timestamp": 1777253400000,
+          "close": 4086.34
+        },
+        {
+          "timestamp": 1777339800000,
+          "close": 4078.64
+        },
+        {
+          "timestamp": 1777426200000,
+          "close": 4107.51
+        },
+        {
+          "timestamp": 1777512600000,
+          "close": 4112.16
+        },
+        {
+          "timestamp": 1778031000000,
+          "close": 4160.17
+        },
+        {
+          "timestamp": 1778117400000,
+          "close": 4180.09
+        },
+        {
+          "timestamp": 1778203800000,
+          "close": 4179.95
+        },
+        {
+          "timestamp": 1778463000000,
+          "close": 4225.02
+        },
+        {
+          "timestamp": 1778549400000,
+          "close": 4214.49
+        },
+        {
+          "timestamp": 1778635800000,
+          "close": 4242.57
+        },
+        {
+          "timestamp": 1778722200000,
+          "close": 4177.92
+        },
+        {
+          "timestamp": 1778808600000,
+          "close": 4135.39
+        },
+        {
+          "timestamp": 1779067800000,
+          "close": 4131.53
+        },
+        {
+          "timestamp": 1779154200000,
+          "close": 4169.54
+        },
+        {
+          "timestamp": 1779240600000,
+          "close": 4162.19
+        },
+        {
+          "timestamp": 1779327000000,
+          "close": 4077.28
+        },
+        {
+          "timestamp": 1779413400000,
+          "close": 4112.9
+        },
+        {
+          "timestamp": 1779672600000,
+          "close": 4152.57
+        },
+        {
+          "timestamp": 1779759000000,
+          "close": 4145.37
+        },
+        {
+          "timestamp": 1779845400000,
+          "close": 4093.73
+        },
+        {
+          "timestamp": 1779931800000,
+          "close": 4098.64
+        },
+        {
+          "timestamp": 1780018200000,
+          "close": 4068.57
+        },
+        {
+          "timestamp": 1780277400000,
+          "close": 4057.74
+        },
+        {
+          "timestamp": 1780363800000,
+          "close": 4075.1
+        },
+        {
+          "timestamp": 1780450200000,
+          "close": 4083.97
+        },
+        {
+          "timestamp": 1780536600000,
+          "close": 4057.78
+        },
+        {
+          "timestamp": 1780623000000,
+          "close": 4027.74
+        },
+        {
+          "timestamp": 1780882200000,
+          "close": 3959.34
+        },
+        {
+          "timestamp": 1780968600000,
+          "close": 4010.03
+        },
+        {
+          "timestamp": 1781055000000,
+          "close": 3993.23
+        },
+        {
+          "timestamp": 1781141400000,
+          "close": 3987.01
+        },
+        {
+          "timestamp": 1781227800000,
+          "close": 4031.51
+        },
+        {
+          "timestamp": 1781487000000,
+          "close": 4096.47
+        },
+        {
+          "timestamp": 1781573400000,
+          "close": 4091.89
+        },
+        {
+          "timestamp": 1781659800000,
+          "close": 4108.08
+        }
+      ]
+    },
+    {
+      "id": "hang-seng",
+      "name": "Hang Seng",
+      "market": "🇭🇰 港股",
+      "category": "指数",
+      "price": 24312.16015625,
+      "currency": "HKD",
+      "change": -181.79,
+      "changePercent": -0.74,
+      "high": 24560.189453125,
+      "low": 24254.0703125,
+      "thesis": "中概与亚洲市场风险偏好",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776648600000,
+          "close": 26361.07
+        },
+        {
+          "timestamp": 1776735000000,
+          "close": 26487.48
+        },
+        {
+          "timestamp": 1776821400000,
+          "close": 26163.24
+        },
+        {
+          "timestamp": 1776907800000,
+          "close": 25915.2
+        },
+        {
+          "timestamp": 1776994200000,
+          "close": 25978.07
+        },
+        {
+          "timestamp": 1777253400000,
+          "close": 25925.65
+        },
+        {
+          "timestamp": 1777339800000,
+          "close": 25679.78
+        },
+        {
+          "timestamp": 1777426200000,
+          "close": 26111.84
+        },
+        {
+          "timestamp": 1777512600000,
+          "close": 25776.53
+        },
+        {
+          "timestamp": 1777858200000,
+          "close": 26095.88
+        },
+        {
+          "timestamp": 1777944600000,
+          "close": 25898.61
+        },
+        {
+          "timestamp": 1778031000000,
+          "close": 26213.78
+        },
+        {
+          "timestamp": 1778117400000,
+          "close": 26626.28
+        },
+        {
+          "timestamp": 1778203800000,
+          "close": 26393.71
+        },
+        {
+          "timestamp": 1778463000000,
+          "close": 26406.84
+        },
+        {
+          "timestamp": 1778549400000,
+          "close": 26347.91
+        },
+        {
+          "timestamp": 1778635800000,
+          "close": 26388.44
+        },
+        {
+          "timestamp": 1778722200000,
+          "close": 26389.04
+        },
+        {
+          "timestamp": 1778808600000,
+          "close": 25962.73
+        },
+        {
+          "timestamp": 1779067800000,
+          "close": 25675.18
+        },
+        {
+          "timestamp": 1779154200000,
+          "close": 25797.85
+        },
+        {
+          "timestamp": 1779240600000,
+          "close": 25651.12
+        },
+        {
+          "timestamp": 1779327000000,
+          "close": 25386.52
+        },
+        {
+          "timestamp": 1779413400000,
+          "close": 25606.03
+        },
+        {
+          "timestamp": 1779759000000,
+          "close": 25599.45
+        },
+        {
+          "timestamp": 1779845400000,
+          "close": 25328.23
+        },
+        {
+          "timestamp": 1779931800000,
+          "close": 25006.16
+        },
+        {
+          "timestamp": 1780018200000,
+          "close": 25182.39
+        },
+        {
+          "timestamp": 1780277400000,
+          "close": 25398.18
+        },
+        {
+          "timestamp": 1780363800000,
+          "close": 26038.32
+        },
+        {
+          "timestamp": 1780450200000,
+          "close": 25633.21
+        },
+        {
+          "timestamp": 1780536600000,
+          "close": 25253.4
+        },
+        {
+          "timestamp": 1780623000000,
+          "close": 24961.95
+        },
+        {
+          "timestamp": 1780882200000,
+          "close": 24657.06
+        },
+        {
+          "timestamp": 1780968600000,
+          "close": 24565.9
+        },
+        {
+          "timestamp": 1781055000000,
+          "close": 24407.96
+        },
+        {
+          "timestamp": 1781141400000,
+          "close": 24249.29
+        },
+        {
+          "timestamp": 1781227800000,
+          "close": 24718.1
+        },
+        {
+          "timestamp": 1781487000000,
+          "close": 24842.67
+        },
+        {
+          "timestamp": 1781573400000,
+          "close": 24493.95
+        },
+        {
+          "timestamp": 1781659800000,
+          "close": 24312.16
+        }
+      ]
+    },
+    {
+      "id": "euro-stoxx",
+      "name": "Euro Stoxx 50",
+      "market": "🇪🇺 欧洲",
+      "category": "指数",
+      "price": 6300.06982421875,
+      "currency": "EUR",
+      "change": 42.65,
+      "changePercent": 0.68,
+      "high": 6300.06982421875,
+      "low": 6253.93017578125,
+      "thesis": "欧元区蓝筹，欧洲经济与 ECB 政策敏感",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776409200000,
+          "close": 6057.71
+        },
+        {
+          "timestamp": 1776668400000,
+          "close": 5982.63
+        },
+        {
+          "timestamp": 1776754800000,
+          "close": 5930.25
+        },
+        {
+          "timestamp": 1776841200000,
+          "close": 5906.22
+        },
+        {
+          "timestamp": 1776927600000,
+          "close": 5894.73
+        },
+        {
+          "timestamp": 1777014000000,
+          "close": 5883.48
+        },
+        {
+          "timestamp": 1777273200000,
+          "close": 5860.32
+        },
+        {
+          "timestamp": 1777359600000,
+          "close": 5836.1
+        },
+        {
+          "timestamp": 1777446000000,
+          "close": 5816.48
+        },
+        {
+          "timestamp": 1777532400000,
+          "close": 5881.51
+        },
+        {
+          "timestamp": 1777878000000,
+          "close": 5763.61
+        },
+        {
+          "timestamp": 1777964400000,
+          "close": 5869.63
+        },
+        {
+          "timestamp": 1778050800000,
+          "close": 6027.13
+        },
+        {
+          "timestamp": 1778137200000,
+          "close": 5972.65
+        },
+        {
+          "timestamp": 1778223600000,
+          "close": 5911.53
+        },
+        {
+          "timestamp": 1778482800000,
+          "close": 5895.45
+        },
+        {
+          "timestamp": 1778569200000,
+          "close": 5808.45
+        },
+        {
+          "timestamp": 1778655600000,
+          "close": 5861.07
+        },
+        {
+          "timestamp": 1778828400000,
+          "close": 5827.76
+        },
+        {
+          "timestamp": 1779087600000,
+          "close": 5849
+        },
+        {
+          "timestamp": 1779174000000,
+          "close": 5851.16
+        },
+        {
+          "timestamp": 1779260400000,
+          "close": 5976.07
+        },
+        {
+          "timestamp": 1779346800000,
+          "close": 5960.32
+        },
+        {
+          "timestamp": 1779433200000,
+          "close": 6019.45
+        },
+        {
+          "timestamp": 1779778800000,
+          "close": 6064.15
+        },
+        {
+          "timestamp": 1779865200000,
+          "close": 6070.54
+        },
+        {
+          "timestamp": 1779951600000,
+          "close": 6055.11
+        },
+        {
+          "timestamp": 1780038000000,
+          "close": 6050.54
+        },
+        {
+          "timestamp": 1780297200000,
+          "close": 6034.95
+        },
+        {
+          "timestamp": 1780383600000,
+          "close": 6107.85
+        },
+        {
+          "timestamp": 1780470000000,
+          "close": 6053.57
+        },
+        {
+          "timestamp": 1780556400000,
+          "close": 6103.33
+        },
+        {
+          "timestamp": 1780642800000,
+          "close": 6062.07
+        },
+        {
+          "timestamp": 1780902000000,
+          "close": 6062.29
+        },
+        {
+          "timestamp": 1780988400000,
+          "close": 6049.74
+        },
+        {
+          "timestamp": 1781074800000,
+          "close": 6009.95
+        },
+        {
+          "timestamp": 1781161200000,
+          "close": 6056.96
+        },
+        {
+          "timestamp": 1781247600000,
+          "close": 6187.63
+        },
+        {
+          "timestamp": 1781506800000,
+          "close": 6229.43
+        },
+        {
+          "timestamp": 1781593200000,
+          "close": 6257.42
+        },
+        {
+          "timestamp": 1781679600000,
+          "close": 6300.07
+        }
+      ]
+    },
+    {
+      "id": "ftse100",
+      "name": "FTSE 100",
+      "market": "🇬🇧 英国",
+      "category": "指数",
+      "price": 10508.599609375,
+      "currency": "GBP",
+      "change": 14.4,
+      "changePercent": 0.14,
+      "high": 10508.599609375,
+      "low": 10468.400390625,
+      "thesis": "英国大盘，能源与金融权重较高",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776409200000,
+          "close": 10667.6
+        },
+        {
+          "timestamp": 1776668400000,
+          "close": 10609.1
+        },
+        {
+          "timestamp": 1776754800000,
+          "close": 10498.1
+        },
+        {
+          "timestamp": 1776841200000,
+          "close": 10476.5
+        },
+        {
+          "timestamp": 1776927600000,
+          "close": 10457
+        },
+        {
+          "timestamp": 1777014000000,
+          "close": 10379.1
+        },
+        {
+          "timestamp": 1777273200000,
+          "close": 10321.1
+        },
+        {
+          "timestamp": 1777359600000,
+          "close": 10332.8
+        },
+        {
+          "timestamp": 1777446000000,
+          "close": 10213.1
+        },
+        {
+          "timestamp": 1777532400000,
+          "close": 10378.8
+        },
+        {
+          "timestamp": 1777618800000,
+          "close": 10363.9
+        },
+        {
+          "timestamp": 1777964400000,
+          "close": 10219.1
+        },
+        {
+          "timestamp": 1778050800000,
+          "close": 10438.7
+        },
+        {
+          "timestamp": 1778137200000,
+          "close": 10277
+        },
+        {
+          "timestamp": 1778223600000,
+          "close": 10233.1
+        },
+        {
+          "timestamp": 1778482800000,
+          "close": 10269.4
+        },
+        {
+          "timestamp": 1778569200000,
+          "close": 10265.3
+        },
+        {
+          "timestamp": 1778655600000,
+          "close": 10325.4
+        },
+        {
+          "timestamp": 1778742000000,
+          "close": 10372.9
+        },
+        {
+          "timestamp": 1778828400000,
+          "close": 10195.4
+        },
+        {
+          "timestamp": 1779087600000,
+          "close": 10323.8
+        },
+        {
+          "timestamp": 1779174000000,
+          "close": 10330.6
+        },
+        {
+          "timestamp": 1779260400000,
+          "close": 10432.3
+        },
+        {
+          "timestamp": 1779346800000,
+          "close": 10443.5
+        },
+        {
+          "timestamp": 1779433200000,
+          "close": 10466.3
+        },
+        {
+          "timestamp": 1779778800000,
+          "close": 10491.4
+        },
+        {
+          "timestamp": 1779865200000,
+          "close": 10505
+        },
+        {
+          "timestamp": 1779951600000,
+          "close": 10426
+        },
+        {
+          "timestamp": 1780038000000,
+          "close": 10409.3
+        },
+        {
+          "timestamp": 1780297200000,
+          "close": 10339
+        },
+        {
+          "timestamp": 1780383600000,
+          "close": 10373.5
+        },
+        {
+          "timestamp": 1780470000000,
+          "close": 10332.3
+        },
+        {
+          "timestamp": 1780556400000,
+          "close": 10360.3
+        },
+        {
+          "timestamp": 1780642800000,
+          "close": 10368.1
+        },
+        {
+          "timestamp": 1780902000000,
+          "close": 10373.2
+        },
+        {
+          "timestamp": 1780988400000,
+          "close": 10227.3
+        },
+        {
+          "timestamp": 1781074800000,
+          "close": 10254.8
+        },
+        {
+          "timestamp": 1781161200000,
+          "close": 10303.9
+        },
+        {
+          "timestamp": 1781247600000,
+          "close": 10471.7
+        },
+        {
+          "timestamp": 1781506800000,
+          "close": 10430.6
+        },
+        {
+          "timestamp": 1781593200000,
+          "close": 10494.2
+        },
+        {
+          "timestamp": 1781679600000,
+          "close": 10508.6
+        }
+      ]
     }
   ],
   "content": [
@@ -145,15 +1905,58 @@
           "summary": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank"
         }
       ]
+    },
+    {
+      "id": "hn-finance",
+      "name": "Hacker News 金融科技话题",
+      "homepage": "https://news.ycombinator.com/",
+      "items": [
+        {
+          "title": "Southpay Ledger – self-serve double-entry ledger API for fintech products",
+          "link": "https://www.southpay.io/ledger/",
+          "publishedAt": "Thu, 11 Jun 2026 15:58:17 +0000",
+          "summary": "Article URL: https://www.southpay.io/ledger/ Comments URL: https://news.ycombinator.com/item?id=48492140 Points: 1 # Comments: 0"
+        },
+        {
+          "title": "Why Britain's fintech stars faded",
+          "link": "https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5",
+          "publishedAt": "Fri, 29 May 2026 10:57:01 +0000",
+          "summary": "Article URL: https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5 Comments URL: https://news.ycombinator.com/item?id=48321522 Points: 3 # Comments: 2"
+        },
+        {
+          "title": "Have I Been Pwned: Colombian fintech company leaks 34.5M accounts in March 2026",
+          "link": "https://haveibeenpwned.com/Breach/ADDI",
+          "publishedAt": "Tue, 19 May 2026 01:58:49 +0000",
+          "summary": "Article URL: https://haveibeenpwned.com/Breach/ADDI Comments URL: https://news.ycombinator.com/item?id=48188363 Points: 4 # Comments: 0"
+        },
+        {
+          "title": "I want to create fintech in Latam, someone with experience can guide me?",
+          "link": "https://news.ycombinator.com/item?id=48156658",
+          "publishedAt": "Sat, 16 May 2026 03:49:25 +0000",
+          "summary": "I need someone with expertise to guide with some law issues in Argentina, some forms with CNV I have to complete. Comments URL: https://news.ycombinator.com/ite…"
+        },
+        {
+          "title": "Vairav Fintech Threat Index",
+          "link": "https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026",
+          "publishedAt": "Tue, 07 Apr 2026 14:08:58 +0000",
+          "summary": "Article URL: https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026 Comments URL: https://news.ycombinator.com/item?id=47675643 Points: 1 # Comments: 0"
+        },
+        {
+          "title": "Sensational news. Fintech has published banking secrets for public access",
+          "link": "https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/",
+          "publishedAt": "Wed, 11 Mar 2026 19:49:41 +0000",
+          "summary": "Article URL: https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/ Comments URL: https://news.ycombinator.com/item?id=47340352 Po…"
+        }
+      ]
     }
   ],
   "insights": [
     {
-      "title": "Hang Seng 是今日最大波动来源",
-      "body": "Hang Seng 今日变动 -1.40%。如果它代表的是你重点观察的风格或资产链条，通常值得作为今天复盘的第一入口。",
+      "title": "Nikkei 225 是今日最大波动来源",
+      "body": "Nikkei 225 今日变动 +1.98%。如果它代表的是你重点观察的风格或资产链条，通常值得作为今天复盘的第一入口。",
       "confidence": "中",
       "tags": [
-        "港股",
+        "🇯🇵 日本",
         "指数"
       ]
     },

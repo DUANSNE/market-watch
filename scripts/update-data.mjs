@@ -49,28 +49,27 @@ async function fetchText(url) {
     },
     cache: "no-store",
   });
-
   if (!response.ok) {
     throw new Error(`请求失败: ${response.status} ${response.statusText}`);
   }
-
   return response.text();
 }
 
 async function fetchFinanceTarget(target) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(
     target.symbol,
-  )}?interval=1d&range=10d`;
+  )}?interval=1d&range=2mo`;
   const parsed = JSON.parse(await fetchText(url));
   const result = parsed?.chart?.result?.[0];
+  const timestamps = asArray(result?.timestamp).filter((v) => typeof v === "number");
   const closes = asArray(result?.indicators?.quote?.[0]?.close).filter(
-    (value) => typeof value === "number",
+    (v) => typeof v === "number",
   );
   const highs = asArray(result?.indicators?.quote?.[0]?.high).filter(
-    (value) => typeof value === "number",
+    (v) => typeof v === "number",
   );
   const lows = asArray(result?.indicators?.quote?.[0]?.low).filter(
-    (value) => typeof value === "number",
+    (v) => typeof v === "number",
   );
 
   if (closes.length < 2) {
@@ -81,6 +80,17 @@ async function fetchFinanceTarget(target) {
   const previousClose = Number(closes.at(-2));
   const change = latestClose - previousClose;
   const changePercent = previousClose ? (change / previousClose) * 100 : 0;
+
+  // 组装历史序列（近 20 个交易日左右）
+  const history = [];
+  const len = Math.min(timestamps.length, closes.length);
+  for (let i = 0; i < len; i++) {
+    const ts = timestamps[i];
+    const cl = closes[i];
+    if (ts && cl != null) {
+      history.push({ timestamp: ts * 1000, close: Number(cl.toFixed(2)) });
+    }
+  }
 
   return {
     id: target.id,
@@ -95,6 +105,7 @@ async function fetchFinanceTarget(target) {
     low: Number(lows.at(-1)) || undefined,
     thesis: target.thesis,
     source: "Yahoo Finance",
+    history,
   };
 }
 
@@ -128,7 +139,6 @@ async function fetchContentTarget(target) {
   const text = await fetchText(target.feedUrl);
   const parsed = xmlParser.parse(text);
   const items = normalizeRssItems(parsed);
-
   return {
     id: target.id,
     name: target.name,
@@ -196,16 +206,14 @@ async function fetchAiInsights(config, finance, content) {
   const model = process.env.OPENAI_MODEL;
   const baseUrl = process.env.OPENAI_BASE_URL || "https://api.openai.com/v1";
 
-  if (!apiKey || !model) {
-    return null;
-  }
+  if (!apiKey || !model) return null;
 
   const prompt = `
 你是一个金融与内容观察助手。请根据以下 JSON 数据，用中文输出 3 条分析观点。
 要求：
 1. 只输出 JSON 数组。
 2. 每个元素包含 title、body、confidence、tags 字段。
-3. body 不要空话，要说明“价格变化”和“内容更新”之间可能的联系。
+3. body 不要空话，要说明价格变化和内容更新之间可能的联系。
 4. 不要编造数据中不存在的事实。
 
 金融数据：
@@ -247,10 +255,7 @@ ${JSON.stringify(config.site, null, 2)}
 
   const data = await response.json();
   const contentText = data?.choices?.[0]?.message?.content;
-
-  if (!contentText) {
-    return null;
-  }
+  if (!contentText) return null;
 
   const parsed = JSON.parse(stripMarkdownFence(contentText));
   return Array.isArray(parsed.insights) ? parsed.insights : null;

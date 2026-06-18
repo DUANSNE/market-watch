@@ -1,42 +1,21 @@
 {
   "site": {
     "title": "Daily Market Watch",
-    "subtitle": "你自己的金融与内容追踪站",
+    "subtitle": "四大市场 · 全球视野",
     "refreshCadence": "daily"
   },
   "financeTargets": [
-    {
-      "id": "sp500",
-      "name": "S&P 500",
-      "symbol": "^GSPC",
-      "market": "美股",
-      "category": "指数",
-      "thesis": "观察全球风险偏好与大型权重股走势"
-    },
-    {
-      "id": "nasdaq",
-      "name": "Nasdaq",
-      "symbol": "^IXIC",
-      "market": "美股",
-      "category": "指数",
-      "thesis": "观察成长科技风格的强弱变化"
-    },
-    {
-      "id": "hang-seng",
-      "name": "Hang Seng",
-      "symbol": "^HSI",
-      "market": "港股",
-      "category": "指数",
-      "thesis": "跟踪中概与亚洲市场风险偏好"
-    },
-    {
-      "id": "apple",
-      "name": "Apple",
-      "symbol": "AAPL",
-      "market": "美股",
-      "category": "个股",
-      "thesis": "观察大型科技龙头与消费电子景气度"
-    }
+    { "id": "sp500",       "name": "S&P 500",        "symbol": "^GSPC",      "market": "🇺🇸 美股",     "category": "指数", "thesis": "美国大盘基准，全球风险偏好风向标" },
+    { "id": "nasdaq",      "name": "Nasdaq",         "symbol": "^IXIC",      "market": "🇺🇸 美股",     "category": "指数", "thesis": "成长科技风格，AI 与互联网景气度" },
+    { "id": "dow-jones",   "name": "Dow Jones",      "symbol": "^DJI",       "market": "🇺🇸 美股",     "category": "指数", "thesis": "传统工业蓝筹，经济周期敏感度" },
+    { "id": "apple",       "name": "Apple",          "symbol": "AAPL",       "market": "🇺🇸 美股",     "category": "个股", "thesis": "消费电子与科技龙头" },
+    { "id": "nvidia",      "name": "Nvidia",         "symbol": "NVDA",       "market": "🇺🇸 美股",     "category": "个股", "thesis": "AI 算力核心，数据中心需求晴雨表" },
+    { "id": "nikkei",      "name": "Nikkei 225",     "symbol": "^N225",      "market": "🇯🇵 日本",     "category": "指数", "thesis": "日股基准，亚太风险偏好与日元相关性" },
+    { "id": "shanghai",    "name": "上证指数",       "symbol": "000001.SS",  "market": "🇨🇳 中国 A 股", "category": "指数", "thesis": "A 股大盘，政策敏感与宏观情绪" },
+    { "id": "hang-seng",   "name": "Hang Seng",      "symbol": "^HSI",       "market": "🇭🇰 港股",     "category": "指数", "thesis": "中概与亚洲市场风险偏好" },
+    { "id": "euro-stoxx",  "name": "Euro Stoxx 50",  "symbol": "^STOXX50E",  "market": "🇪🇺 欧洲",     "category": "指数", "thesis": "欧元区蓝筹，欧洲经济与 ECB 政策敏感" },
+    { "id": "ftse100",     "name": "FTSE 100",       "symbol": "^FTSE",      "market": "🇬🇧 英国",     "category": "指数", "thesis": "英国大盘，能源与金融权重较高" },
+    { "id": "dax",         "name": "DAX",            "symbol": "^GDAXI",     "market": "🇩🇪 德国",     "category": "指数", "thesis": "德国工业与出口导向型经济体基准" }
   ],
   "contentTargets": [
     {

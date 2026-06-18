@@ -1,10 +1,5 @@
 import { NextResponse } from "next/server";
 
-/**
- * 实时快照 API
- * 在 Vercel Serverless 环境中，每次请求实时抓取最新数据并返回。
- * 不依赖本地文件写入，Vercel 原生兼容。
- */
 export const maxDuration = 120;
 export const dynamic = "force-dynamic";
 
@@ -74,9 +69,12 @@ async function fetchText(url: string) {
 }
 
 async function fetchFinanceTarget(target: FinanceTarget) {
-  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(target.symbol)}?interval=1d&range=10d`;
+  const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(target.symbol)}?interval=1d&range=2mo`;
   const parsed = JSON.parse(await fetchText(url));
   const result = parsed?.chart?.result?.[0];
+  const timestamps = asArray(result?.timestamp).filter(
+    (v): v is number => typeof v === "number",
+  );
   const closes = asArray(result?.indicators?.quote?.[0]?.close).filter(
     (v): v is number => typeof v === "number",
   );
@@ -94,6 +92,17 @@ async function fetchFinanceTarget(target: FinanceTarget) {
   const change = latestClose - previousClose;
   const changePercent = previousClose ? (change / previousClose) * 100 : 0;
 
+  // 组装历史序列（近 20 个交易日）
+  const history: Array<{ timestamp: number; close: number }> = [];
+  const len = Math.min(timestamps.length, closes.length);
+  for (let i = 0; i < len; i++) {
+    const ts = timestamps[i];
+    const cl = closes[i];
+    if (ts && cl != null) {
+      history.push({ timestamp: ts * 1000, close: Number(cl.toFixed(2)) });
+    }
+  }
+
   return {
     id: target.id,
     name: target.name,
@@ -107,6 +116,7 @@ async function fetchFinanceTarget(target: FinanceTarget) {
     low: lows.at(-1) ? Number(Number(lows.at(-1)).toFixed(2)) : undefined,
     thesis: target.thesis,
     source: "Yahoo Finance",
+    history,
   };
 }
 
@@ -205,7 +215,6 @@ function buildInsights(
 
 export async function GET() {
   try {
-    // 读取配置
     const fs = await import("node:fs/promises");
     const path = await import("node:path");
     const configRaw = await fs.readFile(
@@ -216,7 +225,6 @@ export async function GET() {
     const financeTargets: FinanceTarget[] = config.financeTargets ?? [];
     const contentTargets: ContentTarget[] = config.contentTargets ?? [];
 
-    // 并行抓取
     const [financeResults, contentResults] = await Promise.all([
       Promise.allSettled(financeTargets.map(fetchFinanceTarget)),
       Promise.allSettled(contentTargets.map(fetchContentTarget)),
