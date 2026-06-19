@@ -264,10 +264,17 @@ ${JSON.stringify(config.site, null, 2)}
 async function main() {
   const config = await loadConfig();
 
-  const finance = (
-    await Promise.allSettled(config.financeTargets.map((target) => fetchFinanceTarget(target)))
-  )
-    .flatMap((result) => (result.status === "fulfilled" ? [result.value] : []));
+  // 分批并发（每批 5 个）避免 Yahoo Finance 限流
+  const BATCH = 5;
+  const finance = [];
+  for (let i = 0; i < config.financeTargets.length; i += BATCH) {
+    const batch = config.financeTargets.slice(i, i + BATCH);
+    const results = await Promise.allSettled(batch.map((target) => fetchFinanceTarget(target)));
+    for (const r of results) {
+      if (r.status === "fulfilled") finance.push(r.value);
+      else console.warn("  跳过:", r.reason?.message?.slice(0, 80));
+    }
+  }
 
   const content = (
     await Promise.allSettled(config.contentTargets.map((target) => fetchContentTarget(target)))

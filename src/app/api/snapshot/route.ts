@@ -225,15 +225,20 @@ export async function GET() {
     const financeTargets: FinanceTarget[] = config.financeTargets ?? [];
     const contentTargets: ContentTarget[] = config.contentTargets ?? [];
 
-    const [financeResults, contentResults] = await Promise.all([
-      Promise.allSettled(financeTargets.map(fetchFinanceTarget)),
-      Promise.allSettled(contentTargets.map(fetchContentTarget)),
-    ]);
+    // 分批并发（每批 5 个）避免 Yahoo Finance 限流
+    const BATCH = 5;
+    const finance: Awaited<ReturnType<typeof fetchFinanceTarget>>[] = [];
+    for (let i = 0; i < financeTargets.length; i += BATCH) {
+      const batch = financeTargets.slice(i, i + BATCH);
+      const results = await Promise.allSettled(batch.map(fetchFinanceTarget));
+      for (const r of results) {
+        if (r.status === "fulfilled") finance.push(r.value);
+      }
+    }
 
-    const finance = financeResults
-      .filter((r) => r.status === "fulfilled")
-      .map((r) => (r as PromiseFulfilledResult<any>).value);
-
+    const contentResults = await Promise.allSettled(
+      contentTargets.map(fetchContentTarget),
+    );
     const content = contentResults
       .filter((r) => r.status === "fulfilled")
       .map((r) => (r as PromiseFulfilledResult<any>).value);

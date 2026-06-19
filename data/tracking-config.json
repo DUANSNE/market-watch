@@ -15,29 +15,18 @@
     { "id": "hang-seng",   "name": "Hang Seng",      "symbol": "^HSI",       "market": "🇭🇰 港股",     "category": "指数", "thesis": "中概与亚洲市场风险偏好" },
     { "id": "euro-stoxx",  "name": "Euro Stoxx 50",  "symbol": "^STOXX50E",  "market": "🇪🇺 欧洲",     "category": "指数", "thesis": "欧元区蓝筹，欧洲经济与 ECB 政策敏感" },
     { "id": "ftse100",     "name": "FTSE 100",       "symbol": "^FTSE",      "market": "🇬🇧 英国",     "category": "指数", "thesis": "英国大盘，能源与金融权重较高" },
-    { "id": "dax",         "name": "DAX",            "symbol": "^GDAXI",     "market": "🇩🇪 德国",     "category": "指数", "thesis": "德国工业与出口导向型经济体基准" }
+    { "id": "dax",         "name": "DAX",            "symbol": "^GDAXI",     "market": "🇩🇪 德国",     "category": "指数", "thesis": "德国工业与出口导向型经济体基准" },
+    { "id": "sox",         "name": "SOX",            "symbol": "^SOX",       "market": "AI 链",     "category": "半导体", "thesis": "半导体景气核心，AI 资本开支的直接映射" },
+    { "id": "crude",       "name": "WTI 原油",       "symbol": "CL=F",       "market": "大宗商品",  "category": "能源", "thesis": "能源通胀与供给扰动敏感度" },
+    { "id": "gold",        "name": "黄金",           "symbol": "GC=F",       "market": "大宗商品",  "category": "贵金属", "thesis": "避险资产与实际利率敏感度" },
+    { "id": "copper",      "name": "铜",             "symbol": "HG=F",       "market": "大宗商品",  "category": "工业金属", "thesis": "全球制造业与电气化需求晴雨表" },
+    { "id": "dxy",         "name": "DXY 美元指数",   "symbol": "DX-Y.NYB",   "market": "宏观",     "category": "汇率", "thesis": "美元强弱决定全球流动性与大宗定价" },
+    { "id": "us10y",       "name": "US 10Y 收益率",  "symbol": "^TNX",       "market": "宏观",     "category": "利率", "thesis": "全球无风险利率锚，影响估值与增长预期" },
+    { "id": "vix",         "name": "VIX 恐慌指数",   "symbol": "^VIX",       "market": "宏观",     "category": "波动率", "thesis": "市场避险与尾部风险温度计" }
   ],
   "contentTargets": [
-    {
-      "id": "sec",
-      "name": "SEC 新闻稿",
-      "kind": "rss",
-      "feedUrl": "https://www.sec.gov/news/pressreleases.rss",
-      "homepage": "https://www.sec.gov/news/pressreleases"
-    },
-    {
-      "id": "federal-reserve",
-      "name": "美联储新闻",
-      "kind": "rss",
-      "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml",
-      "homepage": "https://www.federalreserve.gov/newsevents.htm"
-    },
-    {
-      "id": "hn-finance",
-      "name": "Hacker News 金融科技话题",
-      "kind": "rss",
-      "feedUrl": "https://hnrss.org/newest?q=fintech",
-      "homepage": "https://news.ycombinator.com/"
-    }
+    { "id": "sec",           "name": "SEC 新闻稿",                    "kind": "rss", "feedUrl": "https://www.sec.gov/news/pressreleases.rss",                        "homepage": "https://www.sec.gov/news/pressreleases" },
+    { "id": "federal-reserve", "name": "美联储新闻",                 "kind": "rss", "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml",                "homepage": "https://www.federalreserve.gov/newsevents.htm" },
+    { "id": "hn-finance",    "name": "Hacker News 金融科技话题",      "kind": "rss", "feedUrl": "https://hnrss.org/newest?q=fintech",                               "homepage": "https://news.ycombinator.com/" }
   ]
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-18T01:38:23.098Z",
+  "generatedAt": "2026-06-19T00:38:33.552Z",
   "analysisMode": "local",
   "finance": [
     {
@@ -7,12 +7,12 @@
       "name": "S&P 500",
       "market": "🇺🇸 美股",
       "category": "指数",
-      "price": 7420.10009765625,
+      "price": 7500.580078125,
       "currency": "USD",
-      "change": -91.25,
-      "changePercent": -1.21,
-      "high": 7532.169921875,
-      "low": 7402.60986328125,
+      "change": 80.48,
+      "changePercent": 1.08,
+      "high": 7511.06982421875,
+      "low": 7468.31982421875,
       "thesis": "美国大盘基准，全球风险偏好风向标",
       "source": "Yahoo Finance",
       "history": [
@@ -183,6 +183,10 @@
         {
           "timestamp": 1781703000000,
           "close": 7420.1
+        },
+        {
+          "timestamp": 1781789400000,
+          "close": 7500.58
         }
       ]
     },
@@ -191,12 +195,12 @@
       "name": "Nasdaq",
       "market": "🇺🇸 美股",
       "category": "指数",
-      "price": 26021.65625,
+      "price": 26517.931640625,
       "currency": "USD",
-      "change": -354.68,
-      "changePercent": -1.34,
-      "high": 26511.5546875,
-      "low": 25960.41015625,
+      "change": 496.27,
+      "changePercent": 1.91,
+      "high": 26559.7421875,
+      "low": 26188.6875,
       "thesis": "成长科技风格，AI 与互联网景气度",
       "source": "Yahoo Finance",
       "history": [
@@ -367,6 +371,10 @@
         {
           "timestamp": 1781703000000,
           "close": 26021.66
+        },
+        {
+          "timestamp": 1781789400000,
+          "close": 26517.93
         }
       ]
     },
@@ -375,12 +383,12 @@
       "name": "Dow Jones",
       "market": "🇺🇸 美股",
       "category": "指数",
-      "price": 51492.55078125,
+      "price": 51564.69921875,
       "currency": "USD",
-      "change": -507.12,
-      "changePercent": -0.98,
-      "high": 52281.19140625,
-      "low": 51392.578125,
+      "change": 72.15,
+      "changePercent": 0.14,
+      "high": 51949.26171875,
+      "low": 51554.53125,
       "thesis": "传统工业蓝筹，经济周期敏感度",
       "source": "Yahoo Finance",
       "history": [
@@ -551,6 +559,10 @@
         {
           "timestamp": 1781703000000,
           "close": 51492.55
+        },
+        {
+          "timestamp": 1781789400000,
+          "close": 51564.7
         }
       ]
     },
@@ -559,12 +571,12 @@
       "name": "Apple",
       "market": "🇺🇸 美股",
       "category": "个股",
-      "price": 295.95001220703125,
+      "price": 298.010009765625,
       "currency": "USD",
-      "change": -3.29,
-      "changePercent": -1.1,
-      "high": 302.07000732421875,
-      "low": 294.3800048828125,
+      "change": 2.06,
+      "changePercent": 0.7,
+      "high": 300.57000732421875,
+      "low": 295.6199951171875,
       "thesis": "消费电子与科技龙头",
       "source": "Yahoo Finance",
       "history": [
@@ -735,6 +747,10 @@
         {
           "timestamp": 1781703000000,
           "close": 295.95
+        },
+        {
+          "timestamp": 1781789400000,
+          "close": 298.01
         }
       ]
     },
@@ -743,12 +759,12 @@
       "name": "Nvidia",
       "market": "🇺🇸 美股",
       "category": "个股",
-      "price": 204.64999389648438,
+      "price": 210.69000244140625,
       "currency": "USD",
-      "change": -2.76,
-      "changePercent": -1.33,
-      "high": 209.2100067138672,
-      "low": 203.4499969482422,
+      "change": 6.04,
+      "changePercent": 2.95,
+      "high": 211.38999938964844,
+      "low": 206.5,
       "thesis": "AI 算力核心，数据中心需求晴雨表",
       "source": "Yahoo Finance",
       "history": [
@@ -919,6 +935,10 @@
         {
           "timestamp": 1781703000000,
           "close": 204.65
+        },
+        {
+          "timestamp": 1781789400000,
+          "close": 210.69
         }
       ]
     },
@@ -927,12 +947,12 @@
       "name": "Nikkei 225",
       "market": "🇯🇵 日本",
       "category": "指数",
-      "price": 71288.2578125,
+      "price": 71324,
       "currency": "JPY",
-      "change": 1386.01,
-      "changePercent": 1.98,
-      "high": 71398.578125,
-      "low": 70092.9375,
+      "change": 1421.75,
+      "changePercent": 2.03,
+      "high": 71952.9921875,
+      "low": 71302.0078125,
       "thesis": "日股基准，亚太风险偏好与日元相关性",
       "source": "Yahoo Finance",
       "history": [
@@ -1094,7 +1114,7 @@
         },
         {
           "timestamp": 1781740800000,
-          "close": 71288.26
+          "close": 71324
         }
       ]
     },
@@ -1107,8 +1127,8 @@
       "currency": "CNY",
       "change": 16.18,
       "changePercent": 0.4,
-      "high": 4109.9580078125,
-      "low": 4073.73193359375,
+      "high": 4117.451171875,
+      "low": 4080.293701171875,
       "thesis": "A 股大盘，政策敏感与宏观情绪",
       "source": "Yahoo Finance",
       "history": [
@@ -1283,8 +1303,8 @@
       "currency": "HKD",
       "change": -181.79,
       "changePercent": -0.74,
-      "high": 24560.189453125,
-      "low": 24254.0703125,
+      "high": 24163.25,
+      "low": 23749.990234375,
       "thesis": "中概与亚洲市场风险偏好",
       "source": "Yahoo Finance",
       "history": [
@@ -1463,15 +1483,9 @@
       "currency": "EUR",
       "change": 42.65,
       "changePercent": 0.68,
-      "high": 6300.06982421875,
-      "low": 6253.93017578125,
       "thesis": "欧元区蓝筹，欧洲经济与 ECB 政策敏感",
       "source": "Yahoo Finance",
       "history": [
-        {
-          "timestamp": 1776409200000,
-          "close": 6057.71
-        },
         {
           "timestamp": 1776668400000,
           "close": 5982.63
@@ -1643,15 +1657,11 @@
       "currency": "GBP",
       "change": 14.4,
       "changePercent": 0.14,
-      "high": 10508.599609375,
-      "low": 10468.400390625,
+      "high": 10510.16015625,
+      "low": 10376.58984375,
       "thesis": "英国大盘，能源与金融权重较高",
       "source": "Yahoo Finance",
       "history": [
-        {
-          "timestamp": 1776409200000,
-          "close": 10667.6
-        },
         {
           "timestamp": 1776668400000,
           "close": 10609.1
@@ -1817,6 +1827,1482 @@
           "close": 10508.6
         }
       ]
+    },
+    {
+      "id": "dax",
+      "name": "DAX",
+      "market": "🇩🇪 德国",
+      "category": "指数",
+      "price": 24934.669921875,
+      "currency": "EUR",
+      "change": 24.26,
+      "changePercent": 0.1,
+      "thesis": "德国工业与出口导向型经济体基准",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776668400000,
+          "close": 24417.8
+        },
+        {
+          "timestamp": 1776754800000,
+          "close": 24270.87
+        },
+        {
+          "timestamp": 1776841200000,
+          "close": 24194.9
+        },
+        {
+          "timestamp": 1776927600000,
+          "close": 24155.45
+        },
+        {
+          "timestamp": 1777014000000,
+          "close": 24128.98
+        },
+        {
+          "timestamp": 1777273200000,
+          "close": 24083.53
+        },
+        {
+          "timestamp": 1777359600000,
+          "close": 24018.26
+        },
+        {
+          "timestamp": 1777446000000,
+          "close": 23954.56
+        },
+        {
+          "timestamp": 1777532400000,
+          "close": 24292.38
+        },
+        {
+          "timestamp": 1777878000000,
+          "close": 23991.27
+        },
+        {
+          "timestamp": 1777964400000,
+          "close": 24401.7
+        },
+        {
+          "timestamp": 1778050800000,
+          "close": 24918.69
+        },
+        {
+          "timestamp": 1778137200000,
+          "close": 24663.61
+        },
+        {
+          "timestamp": 1778223600000,
+          "close": 24338.63
+        },
+        {
+          "timestamp": 1778482800000,
+          "close": 24350.28
+        },
+        {
+          "timestamp": 1778569200000,
+          "close": 23954.93
+        },
+        {
+          "timestamp": 1778655600000,
+          "close": 24136.81
+        },
+        {
+          "timestamp": 1778742000000,
+          "close": 24456.26
+        },
+        {
+          "timestamp": 1778828400000,
+          "close": 23950.57
+        },
+        {
+          "timestamp": 1779087600000,
+          "close": 24307.92
+        },
+        {
+          "timestamp": 1779174000000,
+          "close": 24400.65
+        },
+        {
+          "timestamp": 1779260400000,
+          "close": 24737.24
+        },
+        {
+          "timestamp": 1779346800000,
+          "close": 24606.77
+        },
+        {
+          "timestamp": 1779433200000,
+          "close": 24888.56
+        },
+        {
+          "timestamp": 1779692400000,
+          "close": 25389.1
+        },
+        {
+          "timestamp": 1779778800000,
+          "close": 25184.89
+        },
+        {
+          "timestamp": 1779865200000,
+          "close": 25177.8
+        },
+        {
+          "timestamp": 1779951600000,
+          "close": 25092.25
+        },
+        {
+          "timestamp": 1780038000000,
+          "close": 25104.7
+        },
+        {
+          "timestamp": 1780297200000,
+          "close": 25003.04
+        },
+        {
+          "timestamp": 1780383600000,
+          "close": 25124.17
+        },
+        {
+          "timestamp": 1780470000000,
+          "close": 24795.94
+        },
+        {
+          "timestamp": 1780556400000,
+          "close": 24944.95
+        },
+        {
+          "timestamp": 1780642800000,
+          "close": 24759.05
+        },
+        {
+          "timestamp": 1780902000000,
+          "close": 24616.22
+        },
+        {
+          "timestamp": 1780988400000,
+          "close": 24433.06
+        },
+        {
+          "timestamp": 1781074800000,
+          "close": 24195.31
+        },
+        {
+          "timestamp": 1781161200000,
+          "close": 24209.71
+        },
+        {
+          "timestamp": 1781247600000,
+          "close": 24635.3
+        },
+        {
+          "timestamp": 1781506800000,
+          "close": 24894.01
+        },
+        {
+          "timestamp": 1781593200000,
+          "close": 24910.41
+        },
+        {
+          "timestamp": 1781679600000,
+          "close": 24934.67
+        }
+      ]
+    },
+    {
+      "id": "sox",
+      "name": "SOX",
+      "market": "AI 链",
+      "category": "半导体",
+      "price": 14341.783203125,
+      "currency": "USD",
+      "change": 864.71,
+      "changePercent": 6.42,
+      "thesis": "半导体景气核心，AI 资本开支的直接映射",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776691800000,
+          "close": 9599.21
+        },
+        {
+          "timestamp": 1776778200000,
+          "close": 9647.21
+        },
+        {
+          "timestamp": 1776864600000,
+          "close": 9909.27
+        },
+        {
+          "timestamp": 1776951000000,
+          "close": 10078.57
+        },
+        {
+          "timestamp": 1777037400000,
+          "close": 10513.66
+        },
+        {
+          "timestamp": 1777296600000,
+          "close": 10408.04
+        },
+        {
+          "timestamp": 1777383000000,
+          "close": 10035.58
+        },
+        {
+          "timestamp": 1777469400000,
+          "close": 10271.3
+        },
+        {
+          "timestamp": 1777555800000,
+          "close": 10503.7
+        },
+        {
+          "timestamp": 1777642200000,
+          "close": 10595.34
+        },
+        {
+          "timestamp": 1777901400000,
+          "close": 10534.66
+        },
+        {
+          "timestamp": 1777987800000,
+          "close": 10980.58
+        },
+        {
+          "timestamp": 1778074200000,
+          "close": 11472.75
+        },
+        {
+          "timestamp": 1778160600000,
+          "close": 11160.99
+        },
+        {
+          "timestamp": 1778247000000,
+          "close": 11775.5
+        },
+        {
+          "timestamp": 1778506200000,
+          "close": 12081.04
+        },
+        {
+          "timestamp": 1778592600000,
+          "close": 11717.26
+        },
+        {
+          "timestamp": 1778679000000,
+          "close": 12017.98
+        },
+        {
+          "timestamp": 1778765400000,
+          "close": 12073.78
+        },
+        {
+          "timestamp": 1778851800000,
+          "close": 11588.46
+        },
+        {
+          "timestamp": 1779111000000,
+          "close": 11302.52
+        },
+        {
+          "timestamp": 1779197400000,
+          "close": 11305.5
+        },
+        {
+          "timestamp": 1779283800000,
+          "close": 11813.29
+        },
+        {
+          "timestamp": 1779370200000,
+          "close": 11964.08
+        },
+        {
+          "timestamp": 1779456600000,
+          "close": 12202.54
+        },
+        {
+          "timestamp": 1779802200000,
+          "close": 12876.91
+        },
+        {
+          "timestamp": 1779888600000,
+          "close": 12702.19
+        },
+        {
+          "timestamp": 1779975000000,
+          "close": 12829.14
+        },
+        {
+          "timestamp": 1780061400000,
+          "close": 12829.38
+        },
+        {
+          "timestamp": 1780320600000,
+          "close": 12965.65
+        },
+        {
+          "timestamp": 1780407000000,
+          "close": 13726.27
+        },
+        {
+          "timestamp": 1780493400000,
+          "close": 13916.96
+        },
+        {
+          "timestamp": 1780579800000,
+          "close": 13617.5
+        },
+        {
+          "timestamp": 1780666200000,
+          "close": 12220.76
+        },
+        {
+          "timestamp": 1780925400000,
+          "close": 12906.69
+        },
+        {
+          "timestamp": 1781011800000,
+          "close": 12657.81
+        },
+        {
+          "timestamp": 1781098200000,
+          "close": 12206.46
+        },
+        {
+          "timestamp": 1781184600000,
+          "close": 13171.44
+        },
+        {
+          "timestamp": 1781271000000,
+          "close": 13371.47
+        },
+        {
+          "timestamp": 1781530200000,
+          "close": 14099.62
+        },
+        {
+          "timestamp": 1781616600000,
+          "close": 13294.22
+        },
+        {
+          "timestamp": 1781703000000,
+          "close": 13477.07
+        },
+        {
+          "timestamp": 1781789400000,
+          "close": 14341.78
+        }
+      ]
+    },
+    {
+      "id": "crude",
+      "name": "WTI 原油",
+      "market": "大宗商品",
+      "category": "能源",
+      "price": 75.11000061035156,
+      "currency": "USD",
+      "change": -1.68,
+      "changePercent": -2.19,
+      "thesis": "能源通胀与供给扰动敏感度",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776657600000,
+          "close": 89.61
+        },
+        {
+          "timestamp": 1776744000000,
+          "close": 92.13
+        },
+        {
+          "timestamp": 1776830400000,
+          "close": 92.96
+        },
+        {
+          "timestamp": 1776916800000,
+          "close": 95.85
+        },
+        {
+          "timestamp": 1777003200000,
+          "close": 94.4
+        },
+        {
+          "timestamp": 1777262400000,
+          "close": 96.37
+        },
+        {
+          "timestamp": 1777348800000,
+          "close": 99.93
+        },
+        {
+          "timestamp": 1777435200000,
+          "close": 106.88
+        },
+        {
+          "timestamp": 1777521600000,
+          "close": 105.07
+        },
+        {
+          "timestamp": 1777608000000,
+          "close": 101.94
+        },
+        {
+          "timestamp": 1777867200000,
+          "close": 106.42
+        },
+        {
+          "timestamp": 1777953600000,
+          "close": 102.27
+        },
+        {
+          "timestamp": 1778040000000,
+          "close": 95.08
+        },
+        {
+          "timestamp": 1778126400000,
+          "close": 94.81
+        },
+        {
+          "timestamp": 1778212800000,
+          "close": 95.42
+        },
+        {
+          "timestamp": 1778472000000,
+          "close": 98.07
+        },
+        {
+          "timestamp": 1778558400000,
+          "close": 102.18
+        },
+        {
+          "timestamp": 1778644800000,
+          "close": 101.02
+        },
+        {
+          "timestamp": 1778731200000,
+          "close": 101.17
+        },
+        {
+          "timestamp": 1778817600000,
+          "close": 105.42
+        },
+        {
+          "timestamp": 1779076800000,
+          "close": 108.66
+        },
+        {
+          "timestamp": 1779163200000,
+          "close": 107.77
+        },
+        {
+          "timestamp": 1779249600000,
+          "close": 98.26
+        },
+        {
+          "timestamp": 1779336000000,
+          "close": 96.35
+        },
+        {
+          "timestamp": 1779422400000,
+          "close": 96.6
+        },
+        {
+          "timestamp": 1779768000000,
+          "close": 93.89
+        },
+        {
+          "timestamp": 1779854400000,
+          "close": 88.68
+        },
+        {
+          "timestamp": 1779940800000,
+          "close": 88.9
+        },
+        {
+          "timestamp": 1780027200000,
+          "close": 87.36
+        },
+        {
+          "timestamp": 1780286400000,
+          "close": 92.16
+        },
+        {
+          "timestamp": 1780372800000,
+          "close": 93.76
+        },
+        {
+          "timestamp": 1780459200000,
+          "close": 96.02
+        },
+        {
+          "timestamp": 1780545600000,
+          "close": 93.04
+        },
+        {
+          "timestamp": 1780632000000,
+          "close": 90.54
+        },
+        {
+          "timestamp": 1780891200000,
+          "close": 91.3
+        },
+        {
+          "timestamp": 1780977600000,
+          "close": 88.2
+        },
+        {
+          "timestamp": 1781064000000,
+          "close": 90.03
+        },
+        {
+          "timestamp": 1781150400000,
+          "close": 87.71
+        },
+        {
+          "timestamp": 1781236800000,
+          "close": 84.88
+        },
+        {
+          "timestamp": 1781496000000,
+          "close": 80.75
+        },
+        {
+          "timestamp": 1781582400000,
+          "close": 76.05
+        },
+        {
+          "timestamp": 1781668800000,
+          "close": 76.79
+        },
+        {
+          "timestamp": 1781755200000,
+          "close": 75.11
+        }
+      ]
+    },
+    {
+      "id": "gold",
+      "name": "黄金",
+      "market": "大宗商品",
+      "category": "贵金属",
+      "price": 4203.39990234375,
+      "currency": "USD",
+      "change": -155.5,
+      "changePercent": -3.57,
+      "thesis": "避险资产与实际利率敏感度",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776657600000,
+          "close": 4806.6
+        },
+        {
+          "timestamp": 1776744000000,
+          "close": 4698.4
+        },
+        {
+          "timestamp": 1776830400000,
+          "close": 4732.5
+        },
+        {
+          "timestamp": 1776916800000,
+          "close": 4705.1
+        },
+        {
+          "timestamp": 1777003200000,
+          "close": 4722.3
+        },
+        {
+          "timestamp": 1777262400000,
+          "close": 4675.4
+        },
+        {
+          "timestamp": 1777348800000,
+          "close": 4591.5
+        },
+        {
+          "timestamp": 1777435200000,
+          "close": 4545.2
+        },
+        {
+          "timestamp": 1777521600000,
+          "close": 4614.7
+        },
+        {
+          "timestamp": 1777608000000,
+          "close": 4629.9
+        },
+        {
+          "timestamp": 1777867200000,
+          "close": 4519.5
+        },
+        {
+          "timestamp": 1777953600000,
+          "close": 4555.8
+        },
+        {
+          "timestamp": 1778040000000,
+          "close": 4681.9
+        },
+        {
+          "timestamp": 1778126400000,
+          "close": 4699.8
+        },
+        {
+          "timestamp": 1778212800000,
+          "close": 4720.4
+        },
+        {
+          "timestamp": 1778472000000,
+          "close": 4718.7
+        },
+        {
+          "timestamp": 1778558400000,
+          "close": 4677.6
+        },
+        {
+          "timestamp": 1778644800000,
+          "close": 4697.7
+        },
+        {
+          "timestamp": 1778731200000,
+          "close": 4678.1
+        },
+        {
+          "timestamp": 1778817600000,
+          "close": 4555.8
+        },
+        {
+          "timestamp": 1779076800000,
+          "close": 4552.5
+        },
+        {
+          "timestamp": 1779163200000,
+          "close": 4506.3
+        },
+        {
+          "timestamp": 1779249600000,
+          "close": 4531.3
+        },
+        {
+          "timestamp": 1779336000000,
+          "close": 4539.8
+        },
+        {
+          "timestamp": 1779422400000,
+          "close": 4521
+        },
+        {
+          "timestamp": 1779768000000,
+          "close": 4500.4
+        },
+        {
+          "timestamp": 1779854400000,
+          "close": 4447.5
+        },
+        {
+          "timestamp": 1779940800000,
+          "close": 4499.3
+        },
+        {
+          "timestamp": 1780027200000,
+          "close": 4560.5
+        },
+        {
+          "timestamp": 1780286400000,
+          "close": 4475.2
+        },
+        {
+          "timestamp": 1780372800000,
+          "close": 4489.1
+        },
+        {
+          "timestamp": 1780459200000,
+          "close": 4436.7
+        },
+        {
+          "timestamp": 1780545600000,
+          "close": 4475.8
+        },
+        {
+          "timestamp": 1780632000000,
+          "close": 4337.1
+        },
+        {
+          "timestamp": 1780891200000,
+          "close": 4335.9
+        },
+        {
+          "timestamp": 1780977600000,
+          "close": 4260
+        },
+        {
+          "timestamp": 1781064000000,
+          "close": 4108.2
+        },
+        {
+          "timestamp": 1781150400000,
+          "close": 4090.3
+        },
+        {
+          "timestamp": 1781236800000,
+          "close": 4215
+        },
+        {
+          "timestamp": 1781496000000,
+          "close": 4328
+        },
+        {
+          "timestamp": 1781582400000,
+          "close": 4330.9
+        },
+        {
+          "timestamp": 1781668800000,
+          "close": 4358.9
+        },
+        {
+          "timestamp": 1781755200000,
+          "close": 4203.4
+        }
+      ]
+    },
+    {
+      "id": "copper",
+      "name": "铜",
+      "market": "大宗商品",
+      "category": "工业金属",
+      "price": 6.367000102996826,
+      "currency": "USD",
+      "change": -0.11,
+      "changePercent": -1.77,
+      "thesis": "全球制造业与电气化需求晴雨表",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776657600000,
+          "close": 6.04
+        },
+        {
+          "timestamp": 1776744000000,
+          "close": 6
+        },
+        {
+          "timestamp": 1776830400000,
+          "close": 6.12
+        },
+        {
+          "timestamp": 1776916800000,
+          "close": 6.08
+        },
+        {
+          "timestamp": 1777003200000,
+          "close": 6.02
+        },
+        {
+          "timestamp": 1777262400000,
+          "close": 6.02
+        },
+        {
+          "timestamp": 1777348800000,
+          "close": 5.91
+        },
+        {
+          "timestamp": 1777435200000,
+          "close": 5.88
+        },
+        {
+          "timestamp": 1777521600000,
+          "close": 5.93
+        },
+        {
+          "timestamp": 1777608000000,
+          "close": 5.93
+        },
+        {
+          "timestamp": 1777867200000,
+          "close": 5.8
+        },
+        {
+          "timestamp": 1777953600000,
+          "close": 5.94
+        },
+        {
+          "timestamp": 1778040000000,
+          "close": 6.14
+        },
+        {
+          "timestamp": 1778126400000,
+          "close": 6.13
+        },
+        {
+          "timestamp": 1778212800000,
+          "close": 6.25
+        },
+        {
+          "timestamp": 1778472000000,
+          "close": 6.41
+        },
+        {
+          "timestamp": 1778558400000,
+          "close": 6.49
+        },
+        {
+          "timestamp": 1778644800000,
+          "close": 6.64
+        },
+        {
+          "timestamp": 1778731200000,
+          "close": 6.57
+        },
+        {
+          "timestamp": 1778817600000,
+          "close": 6.25
+        },
+        {
+          "timestamp": 1779076800000,
+          "close": 6.27
+        },
+        {
+          "timestamp": 1779163200000,
+          "close": 6.16
+        },
+        {
+          "timestamp": 1779249600000,
+          "close": 6.29
+        },
+        {
+          "timestamp": 1779336000000,
+          "close": 6.26
+        },
+        {
+          "timestamp": 1779422400000,
+          "close": 6.34
+        },
+        {
+          "timestamp": 1779768000000,
+          "close": 6.36
+        },
+        {
+          "timestamp": 1779854400000,
+          "close": 6.3
+        },
+        {
+          "timestamp": 1779940800000,
+          "close": 6.4
+        },
+        {
+          "timestamp": 1780027200000,
+          "close": 6.36
+        },
+        {
+          "timestamp": 1780286400000,
+          "close": 6.52
+        },
+        {
+          "timestamp": 1780372800000,
+          "close": 6.65
+        },
+        {
+          "timestamp": 1780459200000,
+          "close": 6.48
+        },
+        {
+          "timestamp": 1780545600000,
+          "close": 6.51
+        },
+        {
+          "timestamp": 1780632000000,
+          "close": 6.26
+        },
+        {
+          "timestamp": 1780891200000,
+          "close": 6.33
+        },
+        {
+          "timestamp": 1780977600000,
+          "close": 6.3
+        },
+        {
+          "timestamp": 1781064000000,
+          "close": 6.25
+        },
+        {
+          "timestamp": 1781150400000,
+          "close": 6.26
+        },
+        {
+          "timestamp": 1781236800000,
+          "close": 6.43
+        },
+        {
+          "timestamp": 1781496000000,
+          "close": 6.48
+        },
+        {
+          "timestamp": 1781582400000,
+          "close": 6.49
+        },
+        {
+          "timestamp": 1781668800000,
+          "close": 6.48
+        },
+        {
+          "timestamp": 1781755200000,
+          "close": 6.37
+        }
+      ]
+    },
+    {
+      "id": "dxy",
+      "name": "DXY 美元指数",
+      "market": "宏观",
+      "category": "汇率",
+      "price": 100.80699920654297,
+      "currency": "USD",
+      "change": 0.72,
+      "changePercent": 0.72,
+      "thesis": "美元强弱决定全球流动性与大宗定价",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776657600000,
+          "close": 98.05
+        },
+        {
+          "timestamp": 1776744000000,
+          "close": 98.41
+        },
+        {
+          "timestamp": 1776830400000,
+          "close": 98.59
+        },
+        {
+          "timestamp": 1776916800000,
+          "close": 98.8
+        },
+        {
+          "timestamp": 1777003200000,
+          "close": 98.51
+        },
+        {
+          "timestamp": 1777176000000,
+          "close": 98.48
+        },
+        {
+          "timestamp": 1777262400000,
+          "close": 98.62
+        },
+        {
+          "timestamp": 1777348800000,
+          "close": 98.92
+        },
+        {
+          "timestamp": 1777435200000,
+          "close": 98.08
+        },
+        {
+          "timestamp": 1777521600000,
+          "close": 98.21
+        },
+        {
+          "timestamp": 1777608000000,
+          "close": 98.47
+        },
+        {
+          "timestamp": 1777780800000,
+          "close": 98.48
+        },
+        {
+          "timestamp": 1777867200000,
+          "close": 98.02
+        },
+        {
+          "timestamp": 1777953600000,
+          "close": 98.25
+        },
+        {
+          "timestamp": 1778040000000,
+          "close": 97.84
+        },
+        {
+          "timestamp": 1778126400000,
+          "close": 97.94
+        },
+        {
+          "timestamp": 1778212800000,
+          "close": 98.29
+        },
+        {
+          "timestamp": 1778385600000,
+          "close": 98.48
+        },
+        {
+          "timestamp": 1778472000000,
+          "close": 98.88
+        },
+        {
+          "timestamp": 1778558400000,
+          "close": 99.27
+        },
+        {
+          "timestamp": 1778644800000,
+          "close": 98.97
+        },
+        {
+          "timestamp": 1778731200000,
+          "close": 99.3
+        },
+        {
+          "timestamp": 1778817600000,
+          "close": 99.11
+        },
+        {
+          "timestamp": 1778990400000,
+          "close": 99.19
+        },
+        {
+          "timestamp": 1779076800000,
+          "close": 99.32
+        },
+        {
+          "timestamp": 1779163200000,
+          "close": 99.17
+        },
+        {
+          "timestamp": 1779249600000,
+          "close": 99.21
+        },
+        {
+          "timestamp": 1779336000000,
+          "close": 99.02
+        },
+        {
+          "timestamp": 1779422400000,
+          "close": 98.91
+        },
+        {
+          "timestamp": 1779595200000,
+          "close": 99.2
+        },
+        {
+          "timestamp": 1779768000000,
+          "close": 99.22
+        },
+        {
+          "timestamp": 1779854400000,
+          "close": 99.53
+        },
+        {
+          "timestamp": 1779940800000,
+          "close": 99.41
+        },
+        {
+          "timestamp": 1780027200000,
+          "close": 100.07
+        },
+        {
+          "timestamp": 1780200000000,
+          "close": 100.05
+        },
+        {
+          "timestamp": 1780286400000,
+          "close": 99.91
+        },
+        {
+          "timestamp": 1780372800000,
+          "close": 99.95
+        },
+        {
+          "timestamp": 1780459200000,
+          "close": 99.86
+        },
+        {
+          "timestamp": 1780545600000,
+          "close": 99.75
+        },
+        {
+          "timestamp": 1780632000000,
+          "close": 99.63
+        },
+        {
+          "timestamp": 1780804800000,
+          "close": 99.54
+        },
+        {
+          "timestamp": 1780891200000,
+          "close": 100.09
+        },
+        {
+          "timestamp": 1780977600000,
+          "close": 100.81
+        }
+      ]
+    },
+    {
+      "id": "us10y",
+      "name": "US 10Y 收益率",
+      "market": "宏观",
+      "category": "利率",
+      "price": 4.450999736785889,
+      "currency": "USD",
+      "change": -0.04,
+      "changePercent": -0.8,
+      "thesis": "全球无风险利率锚，影响估值与增长预期",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776687600000,
+          "close": 4.25
+        },
+        {
+          "timestamp": 1776774000000,
+          "close": 4.29
+        },
+        {
+          "timestamp": 1776860400000,
+          "close": 4.29
+        },
+        {
+          "timestamp": 1776946800000,
+          "close": 4.32
+        },
+        {
+          "timestamp": 1777033200000,
+          "close": 4.31
+        },
+        {
+          "timestamp": 1777292400000,
+          "close": 4.34
+        },
+        {
+          "timestamp": 1777378800000,
+          "close": 4.35
+        },
+        {
+          "timestamp": 1777465200000,
+          "close": 4.42
+        },
+        {
+          "timestamp": 1777551600000,
+          "close": 4.39
+        },
+        {
+          "timestamp": 1777638000000,
+          "close": 4.38
+        },
+        {
+          "timestamp": 1777897200000,
+          "close": 4.45
+        },
+        {
+          "timestamp": 1777983600000,
+          "close": 4.42
+        },
+        {
+          "timestamp": 1778070000000,
+          "close": 4.36
+        },
+        {
+          "timestamp": 1778156400000,
+          "close": 4.39
+        },
+        {
+          "timestamp": 1778242800000,
+          "close": 4.36
+        },
+        {
+          "timestamp": 1778502000000,
+          "close": 4.41
+        },
+        {
+          "timestamp": 1778588400000,
+          "close": 4.46
+        },
+        {
+          "timestamp": 1778674800000,
+          "close": 4.48
+        },
+        {
+          "timestamp": 1778761200000,
+          "close": 4.46
+        },
+        {
+          "timestamp": 1778847600000,
+          "close": 4.59
+        },
+        {
+          "timestamp": 1779106800000,
+          "close": 4.62
+        },
+        {
+          "timestamp": 1779193200000,
+          "close": 4.67
+        },
+        {
+          "timestamp": 1779279600000,
+          "close": 4.57
+        },
+        {
+          "timestamp": 1779366000000,
+          "close": 4.59
+        },
+        {
+          "timestamp": 1779452400000,
+          "close": 4.56
+        },
+        {
+          "timestamp": 1779711600000,
+          "close": 4.49
+        },
+        {
+          "timestamp": 1779798000000,
+          "close": 4.48
+        },
+        {
+          "timestamp": 1779884400000,
+          "close": 4.45
+        },
+        {
+          "timestamp": 1779970800000,
+          "close": 4.45
+        },
+        {
+          "timestamp": 1780057200000,
+          "close": 4.47
+        },
+        {
+          "timestamp": 1780316400000,
+          "close": 4.45
+        },
+        {
+          "timestamp": 1780402800000,
+          "close": 4.49
+        },
+        {
+          "timestamp": 1780489200000,
+          "close": 4.48
+        },
+        {
+          "timestamp": 1780575600000,
+          "close": 4.54
+        },
+        {
+          "timestamp": 1780662000000,
+          "close": 4.55
+        },
+        {
+          "timestamp": 1780921200000,
+          "close": 4.53
+        },
+        {
+          "timestamp": 1781007600000,
+          "close": 4.54
+        },
+        {
+          "timestamp": 1781094000000,
+          "close": 4.46
+        },
+        {
+          "timestamp": 1781180400000,
+          "close": 4.49
+        },
+        {
+          "timestamp": 1781266800000,
+          "close": 4.45
+        }
+      ]
+    },
+    {
+      "id": "vix",
+      "name": "VIX 恐慌指数",
+      "market": "宏观",
+      "category": "波动率",
+      "price": 16.399999618530273,
+      "currency": "USD",
+      "change": -2.04,
+      "changePercent": -11.06,
+      "thesis": "市场避险与尾部风险温度计",
+      "source": "Yahoo Finance",
+      "history": [
+        {
+          "timestamp": 1776668400000,
+          "close": 18.87
+        },
+        {
+          "timestamp": 1776754800000,
+          "close": 19.5
+        },
+        {
+          "timestamp": 1776841200000,
+          "close": 18.92
+        },
+        {
+          "timestamp": 1776927600000,
+          "close": 19.31
+        },
+        {
+          "timestamp": 1777014000000,
+          "close": 18.71
+        },
+        {
+          "timestamp": 1777273200000,
+          "close": 18.02
+        },
+        {
+          "timestamp": 1777359600000,
+          "close": 17.83
+        },
+        {
+          "timestamp": 1777446000000,
+          "close": 18.81
+        },
+        {
+          "timestamp": 1777532400000,
+          "close": 16.89
+        },
+        {
+          "timestamp": 1777618800000,
+          "close": 16.99
+        },
+        {
+          "timestamp": 1777878000000,
+          "close": 18.29
+        },
+        {
+          "timestamp": 1777964400000,
+          "close": 17.38
+        },
+        {
+          "timestamp": 1778050800000,
+          "close": 17.39
+        },
+        {
+          "timestamp": 1778137200000,
+          "close": 17.08
+        },
+        {
+          "timestamp": 1778223600000,
+          "close": 17.19
+        },
+        {
+          "timestamp": 1778482800000,
+          "close": 18.38
+        },
+        {
+          "timestamp": 1778569200000,
+          "close": 17.99
+        },
+        {
+          "timestamp": 1778655600000,
+          "close": 17.87
+        },
+        {
+          "timestamp": 1778742000000,
+          "close": 17.26
+        },
+        {
+          "timestamp": 1778828400000,
+          "close": 18.43
+        },
+        {
+          "timestamp": 1779087600000,
+          "close": 17.82
+        },
+        {
+          "timestamp": 1779174000000,
+          "close": 18.06
+        },
+        {
+          "timestamp": 1779260400000,
+          "close": 17.44
+        },
+        {
+          "timestamp": 1779346800000,
+          "close": 16.76
+        },
+        {
+          "timestamp": 1779433200000,
+          "close": 16.7
+        },
+        {
+          "timestamp": 1779692400000,
+          "close": 16.59
+        },
+        {
+          "timestamp": 1779778800000,
+          "close": 17.01
+        },
+        {
+          "timestamp": 1779865200000,
+          "close": 16.29
+        },
+        {
+          "timestamp": 1779951600000,
+          "close": 15.74
+        },
+        {
+          "timestamp": 1780038000000,
+          "close": 15.32
+        },
+        {
+          "timestamp": 1780297200000,
+          "close": 16.05
+        },
+        {
+          "timestamp": 1780383600000,
+          "close": 15.77
+        },
+        {
+          "timestamp": 1780470000000,
+          "close": 16.06
+        },
+        {
+          "timestamp": 1780556400000,
+          "close": 15.4
+        },
+        {
+          "timestamp": 1780642800000,
+          "close": 21.51
+        },
+        {
+          "timestamp": 1780902000000,
+          "close": 18.92
+        },
+        {
+          "timestamp": 1780988400000,
+          "close": 19.87
+        },
+        {
+          "timestamp": 1781074800000,
+          "close": 22.22
+        },
+        {
+          "timestamp": 1781161200000,
+          "close": 19.44
+        },
+        {
+          "timestamp": 1781247600000,
+          "close": 17.68
+        },
+        {
+          "timestamp": 1781506800000,
+          "close": 16.2
+        },
+        {
+          "timestamp": 1781593200000,
+          "close": 16.41
+        },
+        {
+          "timestamp": 1781679600000,
+          "close": 18.44
+        },
+        {
+          "timestamp": 1781766000000,
+          "close": 16.4
+        }
+      ]
     }
   ],
   "content": [
@@ -1825,6 +3311,18 @@
       "name": "SEC 新闻稿",
       "homepage": "https://www.sec.gov/news/pressreleases",
       "items": [
+        {
+          "title": "SEC, CFTC Seek Public Comment to Further Clarify and Harmonize Derivatives Product Definitions",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-57-sec-cftc-seek-public-comment-further-clarify-harmonize-derivatives-product-definitions",
+          "publishedAt": "Thu, 18 Jun 2026 14:42:47 -0400",
+          "summary": "The Securities and Exchange Commission and the Commodity Futures Trading Commission today issued a joint request for public comment on potential opportunities t…"
+        },
+        {
+          "title": "SEC, CFTC Seek Public Input on Data Reporting Frameworks for Security-Based Swap and Swap Markets",
+          "link": "https://www.sec.gov/newsroom/press-releases/2026-56-sec-cftc-seek-public-input-data-reporting-frameworks-security-based-swap-swap-markets",
+          "publishedAt": "Thu, 18 Jun 2026 14:17:55 -0400",
+          "summary": "The Securities and Exchange Commission and Commodity Futures Trading Commission today issued a joint request for public comment on potential opportunities to ha…"
+        },
         {
           "title": "SEC Appoints John Moses as Director of the Office of Investor Education and Assistance",
           "link": "https://www.sec.gov/newsroom/press-releases/2026-55-sec-appoints-john-moses-director-office-investor-education-assistance",
@@ -1848,18 +3346,6 @@
           "link": "https://www.sec.gov/newsroom/press-releases/2026-52-sec-announces-new-members-small-business-capital-formation-advisory-committee",
           "publishedAt": "Thu, 04 Jun 2026 14:39:49 -0400",
           "summary": "The Securities and Exchange Commission today announced five new members of the&nbsp;Small Business Capital Formation Advisory Committee. The new members were ap…"
-        },
-        {
-          "title": "SEC Publishes Draft Strategic Plan for Public Comment",
-          "link": "https://www.sec.gov/newsroom/press-releases/2026-51-sec-publishes-draft-strategic-plan-public-comment",
-          "publishedAt": "Tue, 02 Jun 2026 10:30:00 -0400",
-          "summary": "The Securities and Exchange Commission today published a&nbsp;Draft Strategic Plan&nbsp;that focuses on returning the agency to the core mission set by Congress…"
-        },
-        {
-          "title": "SEC Announces Four New Members of Investor Advisory Committee",
-          "link": "https://www.sec.gov/newsroom/press-releases/2026-50-sec-announces-four-new-members-investor-advisory-committee",
-          "publishedAt": "Mon, 01 Jun 2026 12:39:44 -0400",
-          "summary": "The Securities and Exchange Commission today announced&nbsp;four&nbsp;new members to fill vacancies on its Investor Advisory Committee.&nbsp;Three of the four n…"
         }
       ]
     },
@@ -1868,6 +3354,24 @@
       "name": "美联储新闻",
       "homepage": "https://www.federalreserve.gov/newsevents.htm",
       "items": [
+        {
+          "title": "Federal Reserve Board issues enforcement action with former employee of Bank of Eufaula and S N B Bancshares, Inc.",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260618b.htm",
+          "publishedAt": "Thu, 18 Jun 2026 19:00:00 GMT",
+          "summary": "Federal Reserve Board issues enforcement action with former employee of Bank of Eufaula and S N B Bancshares, Inc."
+        },
+        {
+          "title": "Federal Reserve Board issues enforcement action with former employee of Manufacturers and Traders Trust Company",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260618a.htm",
+          "publishedAt": "Thu, 18 Jun 2026 15:00:00 GMT",
+          "summary": "Federal Reserve Board issues enforcement action with former employee of Manufacturers and Traders Trust Company"
+        },
+        {
+          "title": "Federal Reserve Board requests comment on proposal to require certain payment stablecoin issuers to maintain an effective customer identification program",
+          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260618a.htm",
+          "publishedAt": "Thu, 18 Jun 2026 13:00:00 GMT",
+          "summary": "Federal Reserve Board requests comment on proposal to require certain payment stablecoin issuers to maintain an effective customer identification program"
+        },
         {
           "title": "Federal Reserve issues FOMC statement",
           "link": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
@@ -1885,84 +3389,23 @@
           "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260611a.htm",
           "publishedAt": "Thu, 11 Jun 2026 15:00:00 GMT",
           "summary": "Federal Reserve Board announces final rule that establishes data standards for certain information collections"
-        },
-        {
-          "title": "Federal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT.",
-          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260609a.htm",
-          "publishedAt": "Tue, 9 Jun 2026 20:00:00 GMT",
-          "summary": "Federal Reserve Board announces that results from its annual bank stress test will be released on Wednesday, June 24, at 4 p.m. EDT."
-        },
-        {
-          "title": "Agencies remove additional references to reputation risk",
-          "link": "https://www.federalreserve.gov/newsevents/pressreleases/bcreg20260602a.htm",
-          "publishedAt": "Tue, 2 Jun 2026 15:00:00 GMT",
-          "summary": "Agencies remove additional references to reputation risk"
-        },
-        {
-          "title": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank",
-          "link": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260528a.htm",
-          "publishedAt": "Thu, 28 May 2026 15:00:00 GMT",
-          "summary": "Federal Reserve Board issues enforcement actions with former employee of Atlantic Union Bank and former employee of Frost Bank"
-        }
-      ]
-    },
-    {
-      "id": "hn-finance",
-      "name": "Hacker News 金融科技话题",
-      "homepage": "https://news.ycombinator.com/",
-      "items": [
-        {
-          "title": "Southpay Ledger – self-serve double-entry ledger API for fintech products",
-          "link": "https://www.southpay.io/ledger/",
-          "publishedAt": "Thu, 11 Jun 2026 15:58:17 +0000",
-          "summary": "Article URL: https://www.southpay.io/ledger/ Comments URL: https://news.ycombinator.com/item?id=48492140 Points: 1 # Comments: 0"
-        },
-        {
-          "title": "Why Britain's fintech stars faded",
-          "link": "https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5",
-          "publishedAt": "Fri, 29 May 2026 10:57:01 +0000",
-          "summary": "Article URL: https://www.ft.com/content/afaa5465-c337-45d5-aa99-ae5fb5bdbec5 Comments URL: https://news.ycombinator.com/item?id=48321522 Points: 3 # Comments: 2"
-        },
-        {
-          "title": "Have I Been Pwned: Colombian fintech company leaks 34.5M accounts in March 2026",
-          "link": "https://haveibeenpwned.com/Breach/ADDI",
-          "publishedAt": "Tue, 19 May 2026 01:58:49 +0000",
-          "summary": "Article URL: https://haveibeenpwned.com/Breach/ADDI Comments URL: https://news.ycombinator.com/item?id=48188363 Points: 4 # Comments: 0"
-        },
-        {
-          "title": "I want to create fintech in Latam, someone with experience can guide me?",
-          "link": "https://news.ycombinator.com/item?id=48156658",
-          "publishedAt": "Sat, 16 May 2026 03:49:25 +0000",
-          "summary": "I need someone with expertise to guide with some law issues in Argentina, some forms with CNV I have to complete. Comments URL: https://news.ycombinator.com/ite…"
-        },
-        {
-          "title": "Vairav Fintech Threat Index",
-          "link": "https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026",
-          "publishedAt": "Tue, 07 Apr 2026 14:08:58 +0000",
-          "summary": "Article URL: https://mailchi.mp/7ad331ac5d91/fintech-threat-index-q1-2026 Comments URL: https://news.ycombinator.com/item?id=47675643 Points: 1 # Comments: 0"
-        },
-        {
-          "title": "Sensational news. Fintech has published banking secrets for public access",
-          "link": "https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/",
-          "publishedAt": "Wed, 11 Mar 2026 19:49:41 +0000",
-          "summary": "Article URL: https://sfg.media/en/a/monobank-accuses-client-collaboration-slovenian-flag-mistake/ Comments URL: https://news.ycombinator.com/item?id=47340352 Po…"
         }
       ]
     }
   ],
   "insights": [
     {
-      "title": "Nikkei 225 是今日最大波动来源",
-      "body": "Nikkei 225 今日变动 +1.98%。如果它代表的是你重点观察的风格或资产链条，通常值得作为今天复盘的第一入口。",
-      "confidence": "中",
+      "title": "Nvidia 是今日最大波动来源",
+      "body": "Nvidia 今日变动 +2.95%。如果它代表的是你重点观察的风格或资产链条，通常值得作为今天复盘的第一入口。",
+      "confidence": "高",
       "tags": [
-        "🇯🇵 日本",
-        "指数"
+        "🇺🇸 美股",
+        "个股"
       ]
     },
     {
-      "title": "市场分歧仍在扩大",
-      "body": "下跌标的数量偏多，短期情绪更容易受到政策、盈利或宏观变量扰动。",
+      "title": "风险偏好仍有支撑",
+      "body": "上涨标的数量更多，说明资金仍愿意承担一定风险，但还需要继续观察是否有更广泛的扩散。",
       "confidence": "中",
       "tags": [
         "市场情绪",
@@ -1971,7 +3414,7 @@
     },
     {
       "title": "最新内容更新可作为行情解释线索",
-      "body": "最近抓到的一条内容是“SEC Appoints John Moses as Director of the Office of Investor Education and Assistance”。把事件流和价格变化放在一起看，更容易判断今天是消息驱动，还是纯资金风格切换。",
+      "body": "最近抓到的一条内容是“SEC, CFTC Seek Public Comment to Further Clarify and Harmonize Derivatives Product Definitions”。把事件流和价格变化放在一起看，更容易判断今天是消息驱动，还是纯资金风格切换。",
       "confidence": "中",
       "tags": [
         "内容跟踪",
