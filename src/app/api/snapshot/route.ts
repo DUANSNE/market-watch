@@ -72,50 +72,47 @@ async function fetchFinanceTarget(target: FinanceTarget) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(target.symbol)}?interval=1d&range=2y`;
   const parsed = JSON.parse(await fetchText(url));
   const result = parsed?.chart?.result?.[0];
-  const timestamps = asArray(result?.timestamp).filter(
-    (v): v is number => typeof v === "number",
-  );
-  const closes = asArray(result?.indicators?.quote?.[0]?.close).filter(
-    (v): v is number => typeof v === "number",
-  );
-  const highs = asArray(result?.indicators?.quote?.[0]?.high).filter(
-    (v): v is number => typeof v === "number",
-  );
-  const lows = asArray(result?.indicators?.quote?.[0]?.low).filter(
-    (v): v is number => typeof v === "number",
-  );
+  const rawTimestamps = asArray(result?.timestamp);
+  const rawCloses = asArray(result?.indicators?.quote?.[0]?.close);
+  const rawHighs = asArray(result?.indicators?.quote?.[0]?.high);
+  const rawLows = asArray(result?.indicators?.quote?.[0]?.low);
 
-  if (closes.length < 2) throw new Error(`历史数据不足: ${target.symbol}`);
+  // 从尾部向前扫描，找最后一个有效数据点
+  let lastIdx = -1;
+  for (let i = rawCloses.length - 1; i >= 0; i--) {
+    if (typeof rawCloses[i] === "number" && rawCloses[i] !== null) { lastIdx = i; break; }
+  }
+  if (lastIdx < 0) throw new Error(`无有效数据: ${target.symbol}`);
 
-  const latestClose = closes.at(-1)!;
-  const previousClose = closes.at(-2)!;
+  let prevIdx = -1;
+  for (let i = lastIdx - 1; i >= 0; i--) {
+    if (typeof rawCloses[i] === "number" && rawCloses[i] !== null) { prevIdx = i; break; }
+  }
+  if (prevIdx < 0) throw new Error(`历史数据不足: ${target.symbol}`);
+
+  const latestClose = Number(rawCloses[lastIdx]);
+  const previousClose = Number(rawCloses[prevIdx]);
   const change = latestClose - previousClose;
   const changePercent = previousClose ? (change / previousClose) * 100 : 0;
 
-  // 组装历史序列（近 20 个交易日）
   const history: Array<{ timestamp: number; close: number }> = [];
-  const len = Math.min(timestamps.length, closes.length);
-  for (let i = 0; i < len; i++) {
-    const ts = timestamps[i];
-    const cl = closes[i];
-    if (ts && cl != null) {
+  const maxLen = Math.min(rawTimestamps.length, rawCloses.length);
+  for (let i = 0; i < maxLen; i++) {
+    const ts = rawTimestamps[i];
+    const cl = rawCloses[i];
+    if (typeof ts === "number" && typeof cl === "number" && cl !== null) {
       history.push({ timestamp: ts * 1000, close: Number(cl.toFixed(2)) });
     }
   }
 
+  const lastHigh = typeof rawHighs[lastIdx] === "number" ? Number(rawHighs[lastIdx].toFixed(2)) : undefined;
+  const lastLow = typeof rawLows[lastIdx] === "number" ? Number(rawLows[lastIdx].toFixed(2)) : undefined;
+
   return {
-    id: target.id,
-    name: target.name,
-    market: target.market,
-    category: target.category,
-    price: Number(latestClose.toFixed(2)),
-    currency: result?.meta?.currency ?? "USD",
-    change: Number(change.toFixed(2)),
-    changePercent: Number(changePercent.toFixed(2)),
-    high: highs.at(-1) ? Number(Number(highs.at(-1)).toFixed(2)) : undefined,
-    low: lows.at(-1) ? Number(Number(lows.at(-1)).toFixed(2)) : undefined,
-    thesis: target.thesis,
-    source: "Yahoo Finance",
+    id: target.id, name: target.name, market: target.market, category: target.category,
+    price: Number(latestClose.toFixed(2)), currency: result?.meta?.currency ?? "USD",
+    change: Number(change.toFixed(2)), changePercent: Number(changePercent.toFixed(2)),
+    high: lastHigh, low: lastLow, thesis: target.thesis, source: "Yahoo Finance",
     history,
   };
 }

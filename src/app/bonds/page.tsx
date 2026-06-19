@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { formatDateTime, formatPrice, formatSignedNumber, formatSignedPercent, getDashboardSnapshot, getTrackingConfig } from "@/lib/dashboard";
-import BondChart from "./Chart";
+import BondCharts from "./Chart";
 
 export default async function BondsPage() {
   const [config, snapshot] = await Promise.all([getTrackingConfig(), getDashboardSnapshot()]);
@@ -46,7 +46,7 @@ export default async function BondsPage() {
             <span className="text-xs text-slate-500">可缩放 · 对数/线性切换</span>
           </div>
           <div className="rounded-2xl border border-white/[0.06] bg-gradient-to-b from-slate-800/40 to-slate-950/80 p-5 shadow-lg">
-            <BondChart items={finance} />
+            <BondCharts items={finance} />
           </div>
         </section>
 

@@ -9,54 +9,59 @@ type BondItem = {
   market: string;
   category: string;
   price: number;
+  changePercent: number;
   history?: { timestamp: number; close: number }[];
 };
 
-export default function BondChart({ items }: { items: BondItem[] }) {
+/* 判断是美债收益率还是 ETF 价格 */
+function isYieldItem(item: BondItem) {
+  return item.id.startsWith("us") || item.id === "us2y";
+}
+
+function SingleChart({
+  items,
+  title,
+  yUnit,
+  isLog: initialLog,
+  colorMap,
+}: {
+  items: BondItem[];
+  title: string;
+  yUnit: string;
+  isLog: boolean;
+  colorMap: Record<string, string>;
+}) {
   const chartRef = useRef<HTMLDivElement>(null);
-  const [isLog, setIsLog] = useState(true);
   const chartInstance = useRef<echarts.ECharts | null>(null);
+  const [logScale, setLogScale] = useState(initialLog);
+  const needsNormalize = items.length > 0 && !isYieldItem(items[0]);
 
   useEffect(() => {
-    if (!chartRef.current) return;
+    if (!chartRef.current || items.length === 0) return;
     if (!chartInstance.current) {
       chartInstance.current = echarts.init(chartRef.current, null, { renderer: "svg" });
     }
     const chart = chartInstance.current;
 
-    // Color mapping by region
-    const colorMap: Record<string, string> = {
-      "🇺🇸 美国": "#60a5fa",
-      "🇪🇺 欧洲": "#34d399",
-      "🇨🇳 中国": "#fbbf24",
-      "🌍 全球": "#a78bfa",
-    };
-
-    const shortColorMap: Record<string, string> = {
-      "🇺🇸 美国": "#93c5fd",
-    };
-
     const series: echarts.SeriesOption[] = [];
     const legendData: string[] = [];
 
+    // 判断是否需要归一化（ETF 类需要用 base=100 来展示相对表现）
+    // needsNormalize 已在组件作用域中定义
+
     items.forEach((item) => {
       if (!item.history || item.history.length < 5) return;
-      const isYieldTicker = item.id.startsWith("us") && item.category !== "超长债";
-      const color = item.market === "🇺🇸 美国" && item.category !== "长债"
-        ? shortColorMap[item.market] || "#93c5fd"
-        : colorMap[item.market] || "#999";
-      const dash = item.category === "短债" || item.category === "中债" ? "dash" : "solid";
+      const color = colorMap[item.id] || "#60a5fa";
+      const dash = item.category === "短债" || item.category === "中债" ? "dashed" : "solid";
+      const width = item.category === "长债" || item.category === "超长债" ? 2.5 : 1.8;
 
-      const data = item.history.map((p) => [p.timestamp, p.close] as [number, number]);
-
-      // For ETF-type data (Bund, China, Intl), normalize to percent change from start
-      const isEtf = !item.id.startsWith("us");
       let seriesData: [number, number][];
-      if (isEtf) {
-        const base = data[0][1];
-        seriesData = data.map(([ts, val]) => [ts, ((val - base) / base) * 100]);
+      if (needsNormalize) {
+        // 归一化：首日=100，后续为相对值
+        const base = item.history[0].close;
+        seriesData = item.history.map((p) => [p.timestamp, base > 0 ? (p.close / base) * 100 : 100]);
       } else {
-        seriesData = data;
+        seriesData = item.history.map((p) => [p.timestamp, p.close]);
       }
 
       series.push({
@@ -65,11 +70,7 @@ export default function BondChart({ items }: { items: BondItem[] }) {
         data: seriesData,
         smooth: true,
         symbol: "none",
-        lineStyle: {
-          width: isEtf || item.category === "长债" ? 2.5 : 1.8,
-          type: dash === "dash" ? "dashed" : "solid",
-          color,
-        },
+        lineStyle: { width, type: dash as any, color },
         itemStyle: { color },
         emphasis: { focus: "series" },
       });
@@ -77,22 +78,24 @@ export default function BondChart({ items }: { items: BondItem[] }) {
     });
 
     const option: echarts.EChartsOption = {
-      color: ["#60a5fa", "#34d399", "#fbbf24", "#a78bfa", "#93c5fd"],
       tooltip: {
         trigger: "axis",
         appendToBody: true,
-        backgroundColor: "rgba(15,23,42,0.92)",
+        backgroundColor: "rgba(15,23,42,0.95)",
         borderColor: "rgba(255,255,255,0.08)",
         borderWidth: 1,
         textStyle: { color: "#e2e8f0", fontSize: 12 },
         formatter: (params: any) => {
           if (!Array.isArray(params)) return "";
-          const p = params[0];
-          const date = new Date(p.data[0]).toLocaleDateString("zh-CN", { year: "numeric", month: "short", day: "numeric" });
+          const date = new Date(params[0].data[0]).toLocaleDateString("zh-CN", {
+            year: "numeric", month: "short", day: "numeric",
+          });
           let html = `<div style="font-size:13px;font-weight:600;margin-bottom:6px;color:#94a3b8">${date}</div>`;
           params.forEach((pp: any) => {
-            const val = pp.seriesName.includes("US") ? pp.data[1].toFixed(2) + "%" : pp.data[1].toFixed(2) + "%";
-            html += `<div style="display:flex;justify-content:space-between;gap:20px;padding:2px 0">
+            const val = needsNormalize
+              ? (pp.data[1] - 100).toFixed(2) + "%"
+              : pp.data[1].toFixed(2) + yUnit;
+            html += `<div style="display:flex;justify-content:space-between;gap:24px;padding:2px 0">
               <span style="color:${pp.color};display:flex;align-items:center;gap:4px">
                 <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:${pp.color}"></span>
                 ${pp.seriesName}
@@ -106,11 +109,11 @@ export default function BondChart({ items }: { items: BondItem[] }) {
       legend: {
         data: legendData,
         textStyle: { color: "#94a3b8", fontSize: 11 },
-        pageTextStyle: { color: "#94a3b8" },
         bottom: 0,
         type: "scroll",
+        pageTextStyle: { color: "#94a3b8" },
       },
-      grid: { left: 60, right: 40, top: 30, bottom: 56 },
+      grid: { left: 60, right: 30, top: 20, bottom: 50 },
       xAxis: {
         type: "time",
         axisLine: { lineStyle: { color: "rgba(255,255,255,0.06)" } },
@@ -118,22 +121,26 @@ export default function BondChart({ items }: { items: BondItem[] }) {
         splitLine: { show: false },
       },
       yAxis: {
-        type: isLog ? "log" : "value",
-        logBase: items[0]?.id.startsWith("us") ? 10 : Math.E,
+        type: logScale ? "log" : "value",
         axisLine: { show: false },
         axisLabel: {
-          color: "#64748b",
-          fontSize: 11,
+          color: "#64748b", fontSize: 11,
           formatter: (v: number) => {
-            if (items[0]?.id.startsWith("us")) return v.toFixed(1) + "%";
-            return v.toFixed(0) + "%";
+            if (needsNormalize) return (v - 100).toFixed(0) + "%";
+            return v.toFixed(1) + yUnit;
           },
         },
-        splitLine: { lineStyle: { color: "rgba(255,255,255,0.04)", type: "dashed" } },
+        splitLine: { lineStyle: { color: "rgba(255,255,255,0.04)", type: "dashed" as const } },
       },
       dataZoom: [
-        { type: "inside", start: 0, end: 100 },
-        { type: "slider", bottom: 24, height: 16, borderColor: "rgba(255,255,255,0.06)", backgroundColor: "rgba(255,255,255,0.02)", fillerColor: "rgba(96,165,250,0.15)", textStyle: { color: "#64748b", fontSize: 10 } },
+        { type: "inside" as const, start: 30, end: 100 },
+        {
+          type: "slider" as const, bottom: 22, height: 14,
+          borderColor: "rgba(255,255,255,0.06)",
+          backgroundColor: "rgba(255,255,255,0.02)",
+          fillerColor: "rgba(96,165,250,0.15)",
+          textStyle: { color: "#64748b", fontSize: 10 },
+        },
       ],
       series,
     };
@@ -141,48 +148,77 @@ export default function BondChart({ items }: { items: BondItem[] }) {
     chart.setOption(option, true);
     const resize = () => chart.resize();
     window.addEventListener("resize", resize);
-
     return () => {
       window.removeEventListener("resize", resize);
       chart.dispose();
       chartInstance.current = null;
     };
-  }, [items, isLog]);
+  }, [items, logScale, colorMap, yUnit]);
 
   return (
     <div>
-      <div className="mb-4 flex items-center justify-between">
-        <div>
-          <p className="text-sm text-slate-400">
-            可拖拽缩放 · 悬停查看详情 · 点击图例切换品种
-          </p>
+      <div className="mb-3 flex items-center justify-between">
+        <div className="flex items-center gap-3">
+          <h3 className="text-sm font-semibold text-white">{title}</h3>
+          <span className="text-xs text-slate-500">
+            {items.length} 个品种 · 可缩放
+          </span>
         </div>
         <button
-          onClick={() => { chartInstance.current?.dispose(); chartInstance.current = null; setIsLog(!isLog); }}
-          className={`rounded-lg border px-3.5 py-1.5 text-xs font-medium transition ${
-            isLog
+          onClick={() => { chartInstance.current?.dispose(); chartInstance.current = null; setLogScale(!logScale); }}
+          className={`rounded-lg border px-3 py-1 text-xs font-medium transition ${
+            logScale
               ? "border-sky-500/30 bg-sky-500/10 text-sky-400"
               : "border-white/10 bg-white/6 text-slate-400"
           }`}
         >
-          {isLog ? "📐 对数坐标" : "📏 线性坐标"}
+          {logScale ? "📐 对数" : "📏 线性"}
         </button>
       </div>
-      <div ref={chartRef} style={{ width: "100%", height: "520px" }} />
-      <div className="mt-3 grid grid-cols-2 gap-3 text-xs text-slate-500 md:grid-cols-4">
-        <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] px-3 py-2">
-          <span className="font-medium text-sky-400">—</span> 美国收益率（实线=长债，虚线=短债）
-        </div>
-        <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] px-3 py-2">
-          <span className="font-medium text-emerald-400">—</span> 欧洲 Bund（累计%）
-        </div>
-        <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] px-3 py-2">
-          <span className="font-medium text-amber-400">—</span> 中国国债（累计%）
-        </div>
-        <div className="rounded-lg border border-white/[0.04] bg-white/[0.02] px-3 py-2">
-          <span className="font-medium text-purple-400">—</span> 国际国债（累计%）
-        </div>
+      <div ref={chartRef} style={{ width: "100%", height: "420px" }} />
+      <div className="mt-2 flex flex-wrap gap-3 text-xs text-slate-500">
+        <span>▬ 实线 = 长债</span>
+        <span>- - 虚线 = 短债/中债</span>
+        {needsNormalize && <span>📌 归一化: 起始日 = 100</span>}
       </div>
+    </div>
+  );
+}
+
+export default function BondCharts({ items }: { items: BondItem[] }) {
+  const yieldItems = items.filter((i) => i.id.startsWith("us"));
+  const etfItems = items.filter((i) => !i.id.startsWith("us"));
+
+  const yieldColors: Record<string, string> = {
+    us10y: "#60a5fa", us30y: "#3b82f6", us5y: "#93c5fd", us3m: "#bfdbfe", us2y: "#a78bfa",
+  };
+  const etfColors: Record<string, string> = {
+    "china-bond": "#fbbf24", "intl-treas": "#34d399", "em-bonds": "#a78bfa",
+  };
+
+  return (
+    <div className="space-y-8">
+      <div className="rounded-2xl border border-white/[0.06] bg-gradient-to-b from-slate-800/40 to-slate-950/80 p-5 shadow-lg">
+        <SingleChart
+          items={yieldItems}
+          title="🇺🇸 美债收益率"
+          yUnit="%"
+          isLog={false}
+          colorMap={yieldColors}
+        />
+      </div>
+
+      {etfItems.length > 0 && (
+        <div className="rounded-2xl border border-white/[0.06] bg-gradient-to-b from-slate-800/40 to-slate-950/80 p-5 shadow-lg">
+          <SingleChart
+            items={etfItems}
+            title="🌍 全球债券 ETF 相对表现"
+            yUnit=""
+            isLog={true}
+            colorMap={etfColors}
+          />
+        </div>
+      )}
     </div>
   );
 }
