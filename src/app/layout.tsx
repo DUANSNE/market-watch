@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 };
 
 const navItems = [
-  { href: "/", label: "📊 市场追踪", desc: "四大市场实时数据" },
+  { href: "/bonds", label: "📊 债券市场", desc: "全球债券互动图表" },
   { href: "/evening", label: "🌙 晚间观察", desc: "AI vs 大宗 · 大师视角" },
 ];
 

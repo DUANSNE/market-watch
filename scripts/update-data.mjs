@@ -58,7 +58,7 @@ async function fetchText(url) {
 async function fetchFinanceTarget(target) {
   const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(
     target.symbol,
-  )}?interval=1d&range=2mo`;
+  )}?interval=1d&range=2y`;
   const parsed = JSON.parse(await fetchText(url));
   const result = parsed?.chart?.result?.[0];
   const timestamps = asArray(result?.timestamp).filter((v) => typeof v === "number");
