@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-19T02:24:50.316Z",
+  "generatedAt": "2026-06-19T02:37:33.735Z",
   "analysisMode": "local",
   "finance": [
     {
@@ -4027,7 +4027,7 @@
       ]
     },
     {
-      "id": "us2y",
+      "id": "shy",
       "name": "US 2Y (SHY)",
       "market": "🇺🇸 美国",
       "category": "短债",

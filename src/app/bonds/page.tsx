@@ -75,17 +75,18 @@ export default async function BondsPage() {
                   <tbody>
                     {items.map((item) => {
                       const up = item.changePercent >= 0;
+                      const isYield = item.id.startsWith("us");
                       return (
                         <tr key={item.id} className="border-b border-white/[0.03] transition hover:bg-white/[0.02] last:border-0">
                           <td className="px-4 py-3 font-medium text-white">{item.name}</td>
                           <td className="px-4 py-3 text-slate-400">{item.category}</td>
                           <td className="px-4 py-3 text-right font-medium tabular-nums text-white">
-                            {item.id.startsWith("us")
+                            {isYield
                               ? item.price.toFixed(2) + "%"
                               : formatPrice(item.price, item.currency)}
                           </td>
                           <td className={`px-4 py-3 text-right tabular-nums ${up ? "text-emerald-400" : "text-red-400"}`}>
-                            {item.change !== undefined ? formatSignedNumber(item.change) + (item.id.startsWith("us") ? "%" : "") : "--"}
+                            {item.change !== undefined ? formatSignedNumber(item.change) + (isYield ? "%" : "") : "--"}
                           </td>
                           <td className="px-4 py-3 text-right">
                             <span className={`inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-xs font-medium ${up ? "bg-emerald-500/12 text-emerald-400" : "bg-red-500/12 text-red-400"}`}>

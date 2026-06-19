@@ -15,7 +15,7 @@ type BondItem = {
 
 /* 判断是美债收益率还是 ETF 价格 */
 function isYieldItem(item: BondItem) {
-  return item.id.startsWith("us") || item.id === "us2y";
+  return item.id.startsWith("us");
 }
 
 function SingleChart({
@@ -190,7 +190,7 @@ export default function BondCharts({ items }: { items: BondItem[] }) {
   const etfItems = items.filter((i) => !i.id.startsWith("us"));
 
   const yieldColors: Record<string, string> = {
-    us10y: "#60a5fa", us30y: "#3b82f6", us5y: "#93c5fd", us3m: "#bfdbfe", us2y: "#a78bfa",
+    us10y: "#60a5fa", us30y: "#3b82f6", us5y: "#93c5fd", us3m: "#bfdbfe",
   };
   const etfColors: Record<string, string> = {
     "china-bond": "#fbbf24", "intl-treas": "#34d399", "em-bonds": "#a78bfa",

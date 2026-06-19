@@ -7,7 +7,7 @@
   "financeTargets": [
     { "id": "us10y",      "name": "US 10Y 收益率",      "symbol": "^TNX",     "market": "🇺🇸 美国",      "category": "长债",   "thesis": "全球利率锚" },
     { "id": "us30y",      "name": "US 30Y 收益率",      "symbol": "^TYX",     "market": "🇺🇸 美国",      "category": "超长债", "thesis": "长端利率与通胀预期" },
-    { "id": "us2y",       "name": "US 2Y (SHY)",    "symbol": "SHY",      "market": "🇺🇸 美国",      "category": "短债",   "thesis": "短端利率与 Fed 政策预期，1-3 年国债 ETF" },
+    { "id": "shy",       "name": "US 2Y (SHY)",    "symbol": "SHY",      "market": "🇺🇸 美国",      "category": "短债",   "thesis": "短端利率与 Fed 政策预期，1-3 年国债 ETF" },
     { "id": "us5y",       "name": "US 5Y 收益率",       "symbol": "^FVX",     "market": "🇺🇸 美国",      "category": "中债",   "thesis": "中期利率" },
     { "id": "us3m",       "name": "US 3M T-Bill",      "symbol": "^IRX",     "market": "🇺🇸 美国",      "category": "短债",   "thesis": "最短端、现金等价物基准" },
     { "id": "china-bond", "name": "中国国债",           "symbol": "CBND",     "market": "🇨🇳 中国",      "category": "综合",   "thesis": "中国国债 ETF，人民币利率市场" },
