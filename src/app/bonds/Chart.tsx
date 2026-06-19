@@ -17,38 +17,44 @@ function isYieldItem(item: BondItem) {
   return item.id.startsWith("us");
 }
 
-/* Monochrome palette for black background */
-const C = {
-  series: ["#ffffff", "#c0c0c0", "#888888", "#555555", "#333333"],
-  ink: "#ffffff",
-  muted: "#777777",
-  rule: "rgba(255,255,255,0.08)",
-  gridBg: "rgba(255,255,255,0.015)",
-  tooltipBg: "rgba(0,0,0,0.92)",
-};
+export default function BondCharts({ items }: { items: BondItem[] }) {
+  const yields = items.filter((i) => i.id.startsWith("us"));
+  const etfs = items.filter((i) => !i.id.startsWith("us"));
 
-function SingleChart({
-  items, title, yUnit, isLog: initialLog,
+  return (
+    <div className="space-y-10">
+      {yields.length > 0 && <ChartView items={yields} title="美国国债收益率" yUnit="%" isLog={false} />}
+      {etfs.length > 0 && <ChartView items={etfs} title="全球主权债 ETF 相对表现（基准归一化）" yUnit="" isLog={true} />}
+    </div>
+  );
+}
+
+/* ── 灰度配色 ── */
+const GRAY_PALETTE = ["#1a1a1a", "#555", "#888", "#aaa", "#ccc"];
+
+function ChartView({
+  items, title, yUnit, isLog: defaultLog,
 }: {
   items: BondItem[]; title: string; yUnit: string; isLog: boolean;
 }) {
-  const chartRef = useRef<HTMLDivElement>(null);
-  const instRef = useRef<echarts.ECharts | null>(null);
-  const [logScale, setLogScale] = useState(initialLog);
+  const ref = useRef<HTMLDivElement>(null);
+  const instance = useRef<echarts.ECharts | null>(null);
+  const [log, setLog] = useState(defaultLog);
+
   const needsNorm = items.length > 0 && !isYieldItem(items[0]);
 
   useEffect(() => {
-    if (!chartRef.current || items.length === 0) return;
-    if (!instRef.current) instRef.current = echarts.init(chartRef.current, null, { renderer: "svg" });
-    const chart = instRef.current;
+    if (!ref.current || items.length === 0) return;
+    if (!instance.current) instance.current = echarts.init(ref.current, null, { renderer: "svg" });
+    const chart = instance.current;
 
     const series: echarts.SeriesOption[] = [];
-    const legend: string[] = [];
+    const legends: string[] = [];
 
-    items.forEach((item, idx) => {
-      if (!item.history || item.history.length < 5) return;
-      const color = C.series[idx % C.series.length];
-      const width = item.category === "长债" || item.category === "超长债" ? 1.5 : 1;
+    items.forEach((item, i) => {
+      if (!item.history || item.history.length < 6) return;
+      const c = GRAY_PALETTE[i % GRAY_PALETTE.length];
+      const w = item.category === "长债" || item.category === "超长债" ? 2 : 1.2;
 
       let data: [number, number][];
       if (needsNorm) {
@@ -60,11 +66,9 @@ function SingleChart({
 
       series.push({
         name: item.name, type: "line", data, smooth: true, symbol: "none",
-        lineStyle: { width, color },
-        itemStyle: { color },
-        emphasis: { focus: "series" },
+        lineStyle: { width: w, color: c }, emphasis: { focus: "series" },
       });
-      legend.push(item.name);
+      legends.push(item.name);
     });
 
     chart.setOption({
@@ -72,87 +76,66 @@ function SingleChart({
       backgroundColor: "transparent",
       tooltip: {
         trigger: "axis", appendToBody: true,
-        backgroundColor: "rgba(10,10,10,0.95)", borderColor: "rgba(255,255,255,0.08)", borderWidth: 1,
-        textStyle: { color: "#ccc", fontSize: 12 },
+        backgroundColor: "rgba(255,255,255,0.96)", borderColor: "#e5e5e5", borderWidth: 1,
+        textStyle: { color: "#333", fontSize: 12 },
         formatter: (params: any) => {
-          if (!params || !Array.isArray(params)) return "";
-          const date = new Date(params[0].data[0]).toLocaleDateString("zh-CN", { year: "numeric", month: "short", day: "numeric" });
-          let h = `<div style="font-size:12px;font-weight:600;margin-bottom:6px;color:#666">${date}</div>`;
+          if (!Array.isArray(params)) return "";
+          const d = new Date(params[0].data[0]);
+          const dateStr = d.getFullYear() + "-" + String(d.getMonth()+1).padStart(2,"0") + "-" + String(d.getDate()).padStart(2,"0");
+          let h = `<div style="font-size:12px;font-weight:600;margin-bottom:6px;color:#1a1a1a">${dateStr}</div>`;
           params.forEach((p: any) => {
             const v = needsNorm ? (p.data[1] - 100).toFixed(2) + "%" : p.data[1].toFixed(2) + yUnit;
-            h += `<div style="display:flex;justify-content:space-between;gap:20px;padding:1px 0">
-              <span style="color:#999;display:flex;align-items:center;gap:4px">
-                <span style="display:inline-block;width:6px;height:6px;background:${p.color}"></span>
+            h += `<div style="display:flex;justify-content:space-between;gap:24px;padding:1px 0">
+              <span style="color:#888;display:flex;align-items:center;gap:4px">
+                <span style="display:inline-block;width:6px;height:6px;background:${p.color};border-radius:50%"></span>
                 ${p.seriesName}
               </span>
-              <span style="font-weight:600;color:#fff">${v}</span>
+              <span style="font-weight:600;color:#1a1a1a">${v}</span>
             </div>`;
           });
           return h;
         },
       },
-      legend: { data: legend, textStyle: { color: "#666", fontSize: 11 }, bottom: 0, type: "scroll", pageTextStyle: { color: "#666" } },
-      grid: { left: 50, right: 20, top: 16, bottom: 46 },
+      legend: { data: legends, textStyle: { color: "#888", fontSize: 11 }, bottom: 0, type: "scroll", pageTextStyle: { color: "#888" } },
+      grid: { left: 56, right: 20, top: 16, bottom: 44 },
       xAxis: {
-        type: "time", axisLine: { lineStyle: { color: C.rule } }, axisLabel: { color: "#555", fontSize: 10 }, splitLine: { show: false },
+        type: "time", axisLine: { lineStyle: { color: "#e5e5e5" } },
+        axisLabel: { color: "#999", fontSize: 10 }, splitLine: { show: false },
       },
       yAxis: {
-        type: logScale ? "log" : "value",
-        axisLine: { show: false },
-        axisLabel: { color: "#555", fontSize: 10, formatter: (v: number) => needsNorm ? (v - 100).toFixed(0) + "%" : v.toFixed(1) + yUnit },
-        splitLine: { lineStyle: { color: C.rule, type: "dashed" } },
+        type: log ? "log" : "value",
+        axisLine: { show: false }, axisTick: { show: false },
+        axisLabel: { color: "#999", fontSize: 10, margin: 8,
+          formatter: (v: number) => needsNorm ? (v - 100).toFixed(0) + "%" : v.toFixed(1) + yUnit,
+        },
+        splitLine: { lineStyle: { color: "#f0f0f0", type: "dashed" } },
       },
       dataZoom: [
         { type: "inside" as const, start: 40, end: 100 },
-        { type: "slider" as const, bottom: 24, height: 12, borderColor: "rgba(255,255,255,0.06)", backgroundColor: "rgba(255,255,255,0.01)", fillerColor: "rgba(255,255,255,0.06)", textStyle: { color: "#555", fontSize: 10 } },
+        { type: "slider" as const, bottom: 26, height: 10, borderColor: "#e5e5e5", backgroundColor: "rgba(0,0,0,0.02)", fillerColor: "rgba(0,0,0,0.08)", textStyle: { color: "#999", fontSize: 10 } },
       ],
       series,
     }, true);
 
     const r = () => chart.resize();
     window.addEventListener("resize", r);
-    return () => { window.removeEventListener("resize", r); chart.dispose(); instRef.current = null; };
-  }, [items, logScale, yUnit]);
+    return () => { window.removeEventListener("resize", r); chart.dispose(); instance.current = null; };
+  }, [items, log]);
 
   return (
     <div>
-      <div className="mb-4 flex items-center justify-between">
-        <div className="flex items-center gap-3">
-          <h3 className="text-xs font-medium uppercase tracking-[0.12em] text-white/60">{title}</h3>
-          <span className="text-[10px] text-white/20">{items.length} 系列</span>
+      <div className="mb-3 flex items-center justify-between">
+        <div>
+          <h3 className="text-sm font-semibold text-[#1a1a1a]">{title}</h3>
         </div>
         <button
-          onClick={() => { instRef.current?.dispose(); instRef.current = null; setLogScale(!logScale); }}
-          className={`border px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider transition ${
-            logScale ? "border-white/20 text-white/70" : "border-white/[0.06] text-white/25 hover:border-white/15 hover:text-white/50"
-          }`}
+          onClick={() => { instance.current?.dispose(); instance.current = null; setLog(!log); }}
+          className="text-xs text-[#999] border border-[#d4d4d4] rounded px-3 py-1 transition hover:border-[#999] hover:text-[#555]"
         >
-          {logScale ? "Log" : "Lin"}
+          切换至{log ? "线性" : "对数"}坐标
         </button>
       </div>
-      <div ref={chartRef} style={{ width: "100%", height: "400px" }} />
-      <div className="mt-2 flex gap-4 text-[10px] uppercase tracking-wider text-white/15">
-        <span>可拖拽缩放</span>
-        {needsNorm && <span>基准归一化</span>}
-      </div>
-    </div>
-  );
-}
-
-export default function BondCharts({ items }: { items: BondItem[] }) {
-  const yields = items.filter((i) => i.id.startsWith("us"));
-  const etfs = items.filter((i) => !i.id.startsWith("us"));
-
-  return (
-    <div className="space-y-10">
-      <div>
-        <SingleChart items={yields} title="美国国债收益率" yUnit="%" isLog={false} />
-      </div>
-      {etfs.length > 0 && (
-        <div>
-          <SingleChart items={etfs} title="全球主权债 ETF · 相对表现" yUnit="" isLog={true} />
-        </div>
-      )}
+      <div ref={ref} style={{ width: "100%", height: "420px" }} />
     </div>
   );
 }

@@ -8,26 +8,24 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   title: "Global Market Watch",
-  description: "全球债券市场 · AI 产业链 · 大宗商品 · 宏观指标",
+  description: "全球债券市场 · 晚间观察 · 宏观经济与市场分析",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="zh-CN" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col bg-black text-white">
-        {/* Nav */}
-        <header className="sticky top-0 z-50 border-b border-white/[0.06] bg-black/80 backdrop-blur-xl backdrop-saturate-150">
-          <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-8">
-            <Link href="/" className="text-sm font-semibold tracking-[0.15em] uppercase text-white/90">
+      <body className="min-h-full flex flex-col bg-[#fafafa] text-[#1a1a1a]">
+        <header className="sticky top-0 z-50 border-b border-[#e5e5e5] bg-[#fafafa]/95 backdrop-blur-sm">
+          <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-3.5 md:px-8">
+            <Link href="/" className="text-sm font-semibold tracking-wide text-[#1a1a1a]">
               Market Watch
             </Link>
-            <div className="flex items-center gap-1">
-              <Link href="/bonds" className="rounded-md px-4 py-2 text-xs font-medium uppercase tracking-wider text-white/50 transition hover:bg-white/[0.04] hover:text-white/90">
-                债券
+            <div className="flex items-center gap-4 text-sm">
+              <Link href="/bonds" className="text-[#666] transition hover:text-[#1a1a1a]">
+                债券市场
               </Link>
-              <span className="text-white/10">/</span>
-              <Link href="/evening" className="rounded-md px-4 py-2 text-xs font-medium uppercase tracking-wider text-white/50 transition hover:bg-white/[0.04] hover:text-white/90">
-                观察
+              <Link href="/evening" className="text-[#666] transition hover:text-[#1a1a1a]">
+                晚间观察
               </Link>
             </div>
           </nav>

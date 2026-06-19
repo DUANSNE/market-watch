@@ -1,111 +1,120 @@
 export const dynamic = "force-dynamic";
 
-import { formatDateTime, formatPrice, formatSignedNumber, formatSignedPercent, getDashboardSnapshot } from "@/lib/dashboard";
+import { formatDateTime, formatPrice, formatSignedPercent, getDashboardSnapshot } from "@/lib/dashboard";
 import BondCharts from "./Chart";
 
 export default async function BondsPage() {
-  const [, snapshot] = await Promise.all([Promise.resolve(null), getDashboardSnapshot()]);
+  const snapshot = await getDashboardSnapshot();
   const bondIds = ["us10y", "us30y", "shy", "us5y", "us3m", "china-bond", "intl-treas", "em-bonds"];
-  const finance = snapshot.finance.filter((f) => bondIds.includes(f.id));
-  const regions = ["🇺🇸 美国", "🇨🇳 中国", "🌍 全球"];
+  const items = snapshot.finance.filter((f) => bondIds.includes(f.id));
+  const yieldItems = items.filter((f) => f.id.startsWith("us"));
+  const globalItems = items.filter((f) => !f.id.startsWith("us"));
 
   return (
-    <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-12 md:px-8">
-      <div className="space-y-16">
+    <main className="mx-auto w-full max-w-6xl flex-1 px-6 py-10 md:px-8">
+      {/* 页面标题 */}
+      <section className="mb-10">
+        <h1 className="mb-3 text-2xl font-semibold tracking-tight text-[#1a1a1a]">
+          全球债券市场
+        </h1>
+        <p className="max-w-2xl text-sm leading-relaxed text-[#777]">
+          覆盖美国国债各期限收益率、中国利率市场及全球主权债 ETF。支持对数/线性切换，可拖拽缩放。
+        </p>
+        <div className="mt-4 flex flex-wrap gap-x-8 gap-y-1 text-xs text-[#999]">
+          <span>追踪品种 {items.length}</span>
+          <span>更新于 {formatDateTime(snapshot.generatedAt)}</span>
+        </div>
+        <div className="h-rule mt-6" />
+      </section>
 
-        {/* Hero */}
-        <section className="space-y-8">
-          <div className="space-y-4">
-            <div className="text-[11px] font-medium uppercase tracking-[0.20em] text-white/30">
-              全球债券市场
-            </div>
-            <h1 className="max-w-2xl text-3xl font-light leading-tight tracking-tight text-white md:text-4xl">
-              利率曲线 · 跨境对比 · 长周期趋势
-            </h1>
-            <p className="max-w-xl text-sm leading-relaxed text-white/40">
-              覆盖美国国债全期限收益率、中国人民币利率市场及全球主权债。所有图表支持拖拽缩放与对数/线性坐标切换。
-            </p>
-          </div>
+      {/* 图表区域 */}
+      <section className="mb-12 space-y-10">
+        <BondCharts items={items} />
+      </section>
 
-          <div className="flex flex-wrap gap-6">
-            <div className="space-y-1">
-              <div className="text-2xl font-light tabular-nums text-white">{finance.length}</div>
-              <div className="text-[11px] font-medium uppercase tracking-wider text-white/25">追踪品种</div>
-            </div>
-            <div className="space-y-1">
-              <div className="text-2xl font-light tabular-nums text-white">{formatDateTime(snapshot.generatedAt)}</div>
-              <div className="text-[11px] font-medium uppercase tracking-wider text-white/25">最近更新</div>
-            </div>
-          </div>
+      {/* 美债收益率表格 */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-sm font-semibold text-[#1a1a1a]">美国国债收益率</h2>
+        <div className="overflow-x-auto">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>品种</th>
+                <th>类型</th>
+                <th className="num">当前收益率</th>
+                <th className="num">日变动</th>
+                <th className="num">涨跌幅</th>
+                <th className="num">描述</th>
+              </tr>
+            </thead>
+            <tbody>
+              {yieldItems.map((item) => (
+                <tr key={item.id}>
+                  <td className="font-medium">{item.name}</td>
+                  <td className="text-[#999]">{item.category}</td>
+                  <td className="num font-medium">{item.id.startsWith("us") ? item.price.toFixed(2) + "%" : formatPrice(item.price, item.currency)}</td>
+                  <td className={`num ${item.change >= 0 ? "text-[#333]" : "text-[#999]"}`}>
+                    {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)}{item.id.startsWith("us") ? "%" : ""}
+                  </td>
+                  <td className="num">
+                    <span className="tag" style={{
+                      background: item.changePercent >= 0 ? "#dcfce7" : "#fee2e2",
+                      color: item.changePercent >= 0 ? "#166534" : "#991b1b",
+                    }}>
+                      {item.changePercent >= 0 ? "+" : ""}{item.changePercent.toFixed(2)}%
+                    </span>
+                  </td>
+                  <td className="num text-[#aaa] text-xs">{item.thesis}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-          <div className="h-px w-full bg-white/[0.06]" />
-        </section>
+      {/* 全球债券表格 */}
+      <section className="mb-12">
+        <h2 className="mb-4 text-sm font-semibold text-[#1a1a1a]">全球主权债 ETF</h2>
+        <div className="overflow-x-auto">
+          <table className="data-table">
+            <thead>
+              <tr>
+                <th>品种</th>
+                <th>类型</th>
+                <th className="num">价格</th>
+                <th className="num">日变动</th>
+                <th className="num">涨跌幅</th>
+                <th className="num">描述</th>
+              </tr>
+            </thead>
+            <tbody>
+              {globalItems.map((item) => (
+                <tr key={item.id}>
+                  <td className="font-medium">{item.name}</td>
+                  <td className="text-[#999]">{item.category}</td>
+                  <td className="num font-medium">{formatPrice(item.price, item.currency)}</td>
+                  <td className={`num ${item.change >= 0 ? "text-[#333]" : "text-[#999]"}`}>
+                    {item.change >= 0 ? "+" : ""}{item.change.toFixed(2)}
+                  </td>
+                  <td className="num">
+                    <span className="tag" style={{
+                      background: item.changePercent >= 0 ? "#dcfce7" : "#fee2e2",
+                      color: item.changePercent >= 0 ? "#166534" : "#991b1b",
+                    }}>
+                      {item.changePercent >= 0 ? "+" : ""}{item.changePercent.toFixed(2)}%
+                    </span>
+                  </td>
+                  <td className="num text-[#aaa] text-xs">{item.thesis}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-        {/* Charts */}
-        <section className="space-y-8">
-          <BondCharts items={finance} />
-        </section>
-
-        {/* Tables */}
-        <div className="h-px w-full bg-white/[0.06]" />
-
-        {regions.map((region) => {
-          const items = finance.filter((f) => f.market === region);
-          if (!items.length) return null;
-          return (
-            <section key={region} className="space-y-4">
-              <div className="flex items-center gap-3">
-                <span className="text-xs font-medium uppercase tracking-[0.12em] text-white/50">{region}</span>
-                <span className="text-[10px] text-white/20">{items.length} 品种</span>
-              </div>
-
-              <div className="overflow-hidden border border-white/[0.06]">
-                <table className="w-full text-left">
-                  <thead>
-                    <tr className="border-b border-white/[0.04] bg-white/[0.01]">
-                      <th className="px-5 py-3 text-[10px] font-medium uppercase tracking-[0.10em] text-white/25">品种</th>
-                      <th className="px-5 py-3 text-[10px] font-medium uppercase tracking-[0.10em] text-white/25">类型</th>
-                      <th className="px-5 py-3 text-right text-[10px] font-medium uppercase tracking-[0.10em] text-white/25">收益率 / 价格</th>
-                      <th className="px-5 py-3 text-right text-[10px] font-medium uppercase tracking-[0.10em] text-white/25">日变动</th>
-                      <th className="px-5 py-3 text-right text-[10px] font-medium uppercase tracking-[0.10em] text-white/25">涨跌幅</th>
-                      <th className="px-5 py-3 text-right text-[10px] font-medium uppercase tracking-[0.10em] text-white/25 hidden md:table-cell">描述</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {items.map((item) => {
-                      const up = item.changePercent >= 0;
-                      const isYield = item.id.startsWith("us");
-                      return (
-                        <tr key={item.id} className="border-b border-white/[0.03] transition hover:bg-white/[0.015] last:border-0">
-                          <td className="px-5 py-3.5 text-sm font-medium text-white/90">{item.name}</td>
-                          <td className="px-5 py-3.5 text-xs text-white/30">{item.category}</td>
-                          <td className="px-5 py-3.5 text-right text-sm tabular-nums text-white/90">
-                            {isYield ? item.price.toFixed(2) + "%" : formatPrice(item.price, item.currency)}
-                          </td>
-                          <td className={`px-5 py-3.5 text-right text-sm tabular-nums ${up ? "text-white/60" : "text-white/40"}`}>
-                            {item.change !== undefined ? formatSignedNumber(item.change) + (isYield ? "%" : "") : "—"}
-                          </td>
-                          <td className="px-5 py-3.5 text-right">
-                            <span className={`inline-flex items-center gap-1 text-xs tabular-nums font-medium ${up ? "text-white/70" : "text-white/40"}`}>
-                              {up ? "+" : ""}{formatSignedPercent(item.changePercent)}
-                            </span>
-                          </td>
-                          <td className="px-5 py-3.5 text-right text-xs text-white/20 hidden md:table-cell">{item.thesis}</td>
-                        </tr>
-                      );
-                    })}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-          );
-        })}
-
-        {/* Footer */}
-        <footer className="border-t border-white/[0.04] pt-6 text-center text-[10px] font-medium uppercase tracking-[0.12em] text-white/15">
-          Yahoo Finance · 不构成投资建议
-        </footer>
-      </div>
+      <footer className="pt-6 text-center text-xs text-[#ccc]">
+        数据来源：Yahoo Finance · 不构成投资建议
+      </footer>
     </main>
   );
 }
