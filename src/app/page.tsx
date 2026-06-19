@@ -12,354 +12,252 @@ import {
   type HistoryPoint,
 } from "@/lib/dashboard";
 
-/* ── SVG 趋势图 ── */
-
-function SparklineChart({ history, color }: { history: HistoryPoint[]; color: string }) {
+/* ── 趋势图 ── */
+function SparklineChart({ history, color: strokeColor }: { history: HistoryPoint[]; color: string }) {
   if (!history || history.length < 2) return null;
-
   const values = history.map((p) => p.close);
   const min = Math.min(...values);
   const max = Math.max(...values);
   const range = max - min || 1;
-
   const w = 200;
-  const h = 56;
-  const padX = 0;
-  const padY = 4;
-
+  const h = 48;
+  const padY = 3;
   const chartH = h - padY * 2;
 
-  function x(i: number) {
-    return padX + (i / (values.length - 1)) * (w - padX * 2);
-  }
-  function y(v: number) {
-    return padY + chartH - ((v - min) / range) * chartH;
-  }
+  const points = values
+    .map((v, i) => {
+      const x = (i / (values.length - 1)) * w;
+      const y = padY + chartH - ((v - min) / range) * chartH;
+      return `${x.toFixed(1)},${y.toFixed(1)}`;
+    })
+    .join(" ");
 
-  const points = values.map((v, i) => `${x(i).toFixed(1)},${y(v).toFixed(1)}`).join(" ");
+  const gradId = `spark-${strokeColor.replace("#", "")}`;
 
   return (
-    <svg
-      viewBox={`0 0 ${w} ${h}`}
-      className="w-full h-auto overflow-visible"
-      preserveAspectRatio="none"
-    >
-      {/* 渐变填充区域 */}
+    <svg viewBox={`0 0 ${w} ${h}`} className="w-full h-auto" preserveAspectRatio="none">
       <defs>
-        <linearGradient id={`grad-${color}`} x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor={color} stopOpacity="0.25" />
-          <stop offset="100%" stopColor={color} stopOpacity="0.02" />
+        <linearGradient id={gradId} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={strokeColor} stopOpacity={0.2} />
+          <stop offset="100%" stopColor={strokeColor} stopOpacity={0.02} />
         </linearGradient>
       </defs>
-      {/* 填充 */}
-      <polygon
-        fill={`url(#grad-${color})`}
-        points={`${padX},${h} ${points} ${w - padX},${h}`}
-      />
-      {/* 折线 */}
-      <polyline
-        fill="none"
-        stroke={color}
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        points={points}
-      />
-      {/* 最新值圆点 */}
-      <circle
-        cx={x(values.length - 1)}
-        cy={y(values.at(-1)!)}
-        r="3"
-        fill={color}
-        stroke="#0f172a"
-        strokeWidth="1.5"
-      />
+      <polygon fill={`url(#${gradId})`} points={`0,${h} ${points} ${w},${h}`} />
+      <polyline fill="none" stroke={strokeColor} strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" points={points} />
+      <circle cx={w} cy={padY + chartH - ((values.at(-1)! - min) / range) * chartH} r={2.5} fill={strokeColor} stroke="#0f172a" strokeWidth={1.5} />
     </svg>
   );
 }
 
-/* ── 颜色徽标 ── */
-
-function ChangeBadge({ value }: { value: number }) {
-  const tone =
-    value > 0
-      ? "bg-emerald-500/15 text-emerald-300 ring-emerald-400/20"
-      : value < 0
-        ? "bg-rose-500/15 text-rose-300 ring-rose-400/20"
-        : "bg-white/10 text-slate-200 ring-white/10";
-
+function Badge({ value }: { value: number }) {
   return (
-    <span className={`inline-flex shrink-0 rounded-full px-3 py-1 text-sm ring-1 ${tone}`}>
+    <span
+      className={`inline-flex shrink-0 items-center gap-1 rounded-md px-2 py-0.5 text-xs font-medium ${
+        value > 0
+          ? "bg-emerald-500/12 text-emerald-400"
+          : value < 0
+            ? "bg-red-500/12 text-red-400"
+            : "bg-white/6 text-slate-400"
+      }`}
+    >
+      {value > 0 ? "▲" : value < 0 ? "▼" : ""}
       {formatSignedPercent(value)}
     </span>
   );
 }
 
-/* ── 页面 ── */
-
-export default async function Home() {
-  const [config, snapshot] = await Promise.all([
-    getTrackingConfig(),
-    getDashboardSnapshot(),
-  ]);
-  const summaryText = getSummaryText(snapshot);
-  const topMover = getTopMover(snapshot.finance);
+function FinanceCard({ item }: { item: any }) {
+  const first = item.history?.at(0)?.close;
+  const last = item.history?.at(-1)?.close;
+  const trendColor = first && last && last >= first ? "#34d399" : "#fb7185";
 
   return (
-    <main className="mx-auto flex w-full max-w-7xl flex-1 flex-col gap-8 px-6 py-8 md:px-10 lg:px-12">
-      {/* 顶栏 Hero */}
-      <section className="grid gap-6 rounded-[28px] border border-white/10 bg-[radial-gradient(circle_at_top_left,_rgba(96,165,250,0.18),_transparent_35%),linear-gradient(135deg,#111827,#050816)] p-8 shadow-2xl shadow-sky-950/30 lg:grid-cols-[1.6fr_0.9fr]">
-        <div className="space-y-5">
-          <div className="inline-flex rounded-full border border-sky-400/20 bg-sky-400/10 px-4 py-1 text-sm text-sky-200">
-            每日自动更新的全球数据驾驶舱
+    <article className="group rounded-2xl border border-white/[0.06] bg-gradient-to-b from-slate-800/40 to-slate-950/80 p-5 shadow-lg shadow-black/10 transition hover:border-white/[0.12] hover:shadow-xl">
+      {/* 头部 */}
+      <div className="mb-3 flex items-start justify-between gap-3">
+        <div className="min-w-0">
+          <div className="flex items-center gap-2 text-xs text-slate-500">
+            <span>{item.market}</span>
+            <span className="text-slate-600">·</span>
+            <span>{item.category}</span>
           </div>
-          <div className="space-y-3">
-            <h1 className="text-4xl font-semibold tracking-tight text-white md:text-5xl">
-              {config.site.title}
-            </h1>
-            <p className="max-w-3xl text-lg leading-8 text-slate-300">
-              {config.site.subtitle}。涵盖美股、日本、中国、欧洲四大市场，实时行情与内容追踪同屏展示。
-            </p>
-          </div>
-          <p className="max-w-3xl text-base leading-7 text-slate-300">
-            {summaryText}
-          </p>
+          <h3 className="mt-0.5 truncate text-base font-semibold text-white">{item.name}</h3>
         </div>
+        <Badge value={item.changePercent} />
+      </div>
 
-        <div className="grid gap-4 rounded-[24px] border border-white/10 bg-white/6 p-5">
-          <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-            <div className="text-sm text-slate-400">最近更新时间</div>
-            <div className="mt-2 text-xl font-semibold text-white">
-              {formatDateTime(snapshot.generatedAt)}
-            </div>
+      {/* 价格 */}
+      <div className="flex items-baseline gap-2">
+        <span className="text-2xl font-bold tabular-nums text-white">
+          {formatPrice(item.price, item.currency)}
+        </span>
+        <span className="text-xs text-slate-500">
+          日 {formatSignedNumber(item.change)}
+        </span>
+      </div>
+
+      {/* 趋势图 */}
+      {item.history && item.history.length >= 2 && (
+        <div className="mt-3">
+          <SparklineChart history={item.history} color={trendColor} />
+          <div className="mt-0.5 flex justify-between text-[10px] text-slate-600">
+            <span>{new Date(item.history[0].timestamp).toLocaleDateString("zh-CN", { month: "short", day: "numeric" })}</span>
+            <span>{new Date(item.history[item.history.length - 1].timestamp).toLocaleDateString("zh-CN", { month: "short", day: "numeric" })}</span>
           </div>
-          <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-            <div className="text-sm text-slate-400">追踪标的</div>
-            <div className="mt-2 text-xl font-semibold text-white">
-              {snapshot.finance.length} 个
-            </div>
-          </div>
-          <div className="rounded-2xl border border-white/8 bg-black/20 p-4">
-            <div className="text-sm text-slate-400">今日最大波动</div>
-            <div className="mt-2 text-xl font-semibold text-white">
-              {topMover ? topMover.name : "暂无数据"}
-            </div>
-            {topMover ? (
-              <div className="mt-3">
-                <ChangeBadge value={topMover.changePercent} />
+        </div>
+      )}
+
+      {/* 日高/日低 */}
+      <div className="mt-3 grid grid-cols-2 gap-2">
+        <div className="rounded-xl bg-white/[0.03] px-3 py-2">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">日高</div>
+          <div className="mt-0.5 text-sm font-medium tabular-nums text-slate-200">{item.high?.toFixed(2) ?? "--"}</div>
+        </div>
+        <div className="rounded-xl bg-white/[0.03] px-3 py-2">
+          <div className="text-[10px] font-medium uppercase tracking-wider text-slate-500">日低</div>
+          <div className="mt-0.5 text-sm font-medium tabular-nums text-slate-200">{item.low?.toFixed(2) ?? "--"}</div>
+        </div>
+      </div>
+
+      <p className="mt-3 text-xs leading-relaxed text-slate-500">{item.thesis}</p>
+    </article>
+  );
+}
+
+export default async function Home() {
+  const [config, snapshot] = await Promise.all([getTrackingConfig(), getDashboardSnapshot()]);
+  const topMover = getTopMover(snapshot.finance);
+  const summaryText = getSummaryText(snapshot);
+
+  const regions = ["🇺🇸 美股", "🇯🇵 日本", "🇨🇳 中国 A 股", "🇭🇰 港股", "🇪🇺 欧洲", "🇬🇧 英国", "🇩🇪 德国", "AI 链", "大宗商品", "宏观"];
+
+  return (
+    <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-10 md:px-8 lg:px-10">
+      <div className="space-y-10">
+        {/* ═════ HERO ═════ */}
+        <section>
+          <div className="rounded-2xl border border-white/[0.06] bg-gradient-to-br from-sky-950/40 via-slate-900 to-slate-950 p-7 shadow-2xl shadow-black/40 md:p-9">
+            <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/8 px-3.5 py-1 text-xs font-medium text-sky-300/90">
+                  <span className="h-1.5 w-1.5 rounded-full bg-sky-400/60" />
+                  每日自动更新的全球数据驾驶舱
+                </div>
+                <h1 className="text-2xl font-bold tracking-tight text-white md:text-3xl">{config.site.title}</h1>
+                <p className="max-w-xl text-sm leading-relaxed text-slate-400">{config.site.subtitle}</p>
+                <p className="max-w-xl text-sm leading-relaxed text-slate-400">{summaryText}</p>
               </div>
-            ) : null}
-          </div>
-        </div>
-      </section>
 
-      {/* 市场板块：按地区分组 */}
-      {["🇺🇸 美股", "🇯🇵 日本", "🇨🇳 中国 A 股", "🇭🇰 港股", "🇪🇺 欧洲", "🇬🇧 英国", "🇩🇪 德国"].map(
-        (region) => {
+              <div className="flex shrink-0 flex-wrap gap-3">
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-4 py-2.5 text-center">
+                  <div className="text-lg font-bold tabular-nums text-white">{snapshot.finance.length}</div>
+                  <div className="mt-0.5 text-[11px] text-slate-500">追踪标的</div>
+                </div>
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-4 py-2.5 text-center">
+                  <div className="text-lg font-bold tabular-nums text-white">{formatDateTime(snapshot.generatedAt)}</div>
+                  <div className="mt-0.5 text-[11px] text-slate-500">最近更新</div>
+                </div>
+                <div className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-4 py-2.5 text-center">
+                  <div className="text-lg font-bold tabular-nums text-white">{topMover?.name ?? "—"}</div>
+                  <div className="mt-0.5 text-[11px] text-slate-500">今日最大波动</div>
+                  {topMover && (
+                    <div className="mt-1">
+                      <Badge value={topMover.changePercent} />
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ═════ 按区域分组 ═════ */}
+        {regions.map((region) => {
           const items = snapshot.finance.filter((f) => f.market === region);
           if (!items.length) return null;
           return (
             <section key={region}>
-              <h2 className="mb-4 text-xl font-semibold text-white">{region}</h2>
+              <div className="mb-4 flex items-center gap-3">
+                <div className="h-5 w-1 rounded-full bg-white/[0.10]" />
+                <h2 className="text-base font-bold text-white">{region}</h2>
+                <span className="rounded-md bg-white/[0.04] px-2 py-0.5 text-[11px] font-medium text-slate-500">{items.length} 个标的</span>
+              </div>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {items.map((item) => {
-                  const firstClose = item.history?.at(0)?.close;
-                  const lastClose = item.history?.at(-1)?.close;
-                  const trendColor =
-                    firstClose && lastClose && lastClose >= firstClose
-                      ? "#34d399"
-                      : "#fb7185";
-
-                  return (
-                    <article
-                      key={item.id}
-                      className="rounded-[24px] border border-white/10 bg-slate-950/70 p-5 shadow-lg shadow-black/20"
-                    >
-                      {/* 头部 */}
-                      <div className="flex items-start justify-between gap-3">
-                        <div className="min-w-0">
-                          <div className="text-sm text-slate-400">
-                            {item.category}
-                          </div>
-                          <h3 className="mt-1 truncate text-lg font-semibold text-white">
-                            {item.name}
-                          </h3>
-                        </div>
-                        <ChangeBadge value={item.changePercent} />
-                      </div>
-
-                      {/* 价格 */}
-                      <div className="mt-3 text-2xl font-semibold text-white">
-                        {formatPrice(item.price, item.currency)}
-                      </div>
-                      <div className="mt-1 text-sm text-slate-400">
-                        日变动 {formatSignedNumber(item.change)} /{" "}
-                        {formatSignedPercent(item.changePercent)}
-                      </div>
-
-                      {/* 趋势图 */}
-                      {item.history && item.history.length >= 2 && (
-                        <div className="mt-3">
-                          <SparklineChart history={item.history} color={trendColor} />
-                          <div className="mt-1 flex justify-between text-xs text-slate-500">
-                            <span>
-                              {new Date(
-                                item.history[0].timestamp,
-                              ).toLocaleDateString("zh-CN", {
-                                month: "short",
-                                day: "numeric",
-                              })}
-                            </span>
-                            <span>
-                              {new Date(
-                                item.history[item.history.length - 1].timestamp,
-                              ).toLocaleDateString("zh-CN", {
-                                month: "short",
-                                day: "numeric",
-                              })}
-                            </span>
-                          </div>
-                        </div>
-                      )}
-
-                      {/* 日高/日低 */}
-                      <div className="mt-3 grid grid-cols-2 gap-3 text-sm text-slate-300">
-                        <div className="rounded-2xl bg-white/5 p-3">
-                          <div className="text-slate-500">日高</div>
-                          <div className="mt-1 font-medium">
-                            {item.high?.toFixed(2) ?? "--"}
-                          </div>
-                        </div>
-                        <div className="rounded-2xl bg-white/5 p-3">
-                          <div className="text-slate-500">日低</div>
-                          <div className="mt-1 font-medium">
-                            {item.low?.toFixed(2) ?? "--"}
-                          </div>
-                        </div>
-                      </div>
-
-                      <p className="mt-3 text-sm leading-6 text-slate-300">
-                        {item.thesis}
-                      </p>
-                    </article>
-                  );
-                })}
+                {items.map((item) => (
+                  <FinanceCard key={item.id} item={item} />
+                ))}
               </div>
             </section>
           );
-        },
-      )}
+        })}
 
-      {/* 站点与平台追踪 + 分析 */}
-      <section className="grid gap-6 lg:grid-cols-[1.25fr_0.9fr]">
-        <div className="rounded-[28px] border border-white/10 bg-slate-950/70 p-6">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <h2 className="text-2xl font-semibold text-white">站点与平台追踪</h2>
-              <p className="mt-1 text-sm text-slate-400">
-                当前以 RSS / 官方公开源为主，适合做资讯、公告、政策与社区动态汇总。
-              </p>
-            </div>
-            <div className="rounded-full bg-white/6 px-3 py-1 text-sm text-slate-300">
-              {snapshot.content.length} 个来源
-            </div>
+        {/* ═════ 内容追踪 + 分析 ═════ */}
+        <section>
+          <div className="mb-4 flex items-center gap-3">
+            <div className="h-5 w-1 rounded-full bg-white/[0.10]" />
+            <h2 className="text-base font-bold text-white">站点与平台追踪</h2>
+            <span className="rounded-md bg-white/[0.04] px-2 py-0.5 text-[11px] font-medium text-slate-500">{snapshot.content.length} 个来源</span>
           </div>
-
-          <div className="mt-6 grid gap-4">
-            {snapshot.content.map((source) => (
-              <article
-                key={source.id}
-                className="rounded-[24px] border border-white/8 bg-white/4 p-5"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <h3 className="text-lg font-medium text-white">{source.name}</h3>
-                    <div className="mt-1 text-sm text-slate-500">
-                      共 {source.items.length} 条最近更新
+          <div className="grid gap-6 lg:grid-cols-[1.4fr_1fr]">
+            <div className="space-y-3">
+              {snapshot.content.map((source) => (
+                <div key={source.id} className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+                  <div className="mb-3 flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-sm font-semibold text-white">{source.name}</h3>
+                      <div className="mt-0.5 text-xs text-slate-500">{source.items.length} 条最近更新</div>
                     </div>
+                    {source.homepage && (
+                      <a href={source.homepage} target="_blank" rel="noreferrer" className="shrink-0 rounded-md bg-white/[0.04] px-3 py-1 text-xs font-medium text-sky-400 transition hover:bg-sky-400/10">
+                        访问 ↗
+                      </a>
+                    )}
                   </div>
-                  {source.homepage ? (
-                    <a
-                      className="text-sm text-sky-300 transition hover:text-sky-200"
-                      href={source.homepage}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      访问来源
-                    </a>
-                  ) : null}
-                </div>
-
-                <div className="mt-4 space-y-3">
-                  {source.items.slice(0, 4).map((entry) => (
-                    <a
-                      key={entry.link}
-                      href={entry.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="block rounded-2xl border border-white/6 bg-black/15 p-4 transition hover:border-sky-400/20 hover:bg-sky-400/5"
-                    >
-                      <div className="text-sm text-slate-500">
-                        {entry.publishedAt
-                          ? formatDateTime(entry.publishedAt)
-                          : "时间未知"}
-                      </div>
-                      <div className="mt-1 text-base font-medium text-white">
-                        {entry.title}
-                      </div>
-                      {entry.summary ? (
-                        <p className="mt-2 text-sm leading-6 text-slate-300">
-                          {entry.summary}
-                        </p>
-                      ) : null}
-                    </a>
-                  ))}
-                </div>
-              </article>
-            ))}
-          </div>
-        </div>
-
-        <aside className="space-y-6">
-          <section className="rounded-[28px] border border-white/10 bg-slate-950/70 p-6">
-            <h2 className="text-2xl font-semibold text-white">今日分析</h2>
-            <div className="mt-5 space-y-4">
-              {snapshot.insights.map((insight) => (
-                <article
-                  key={insight.title}
-                  className="rounded-[24px] border border-white/8 bg-white/4 p-5"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <h3 className="text-lg font-medium text-white">
-                      {insight.title}
-                    </h3>
-                    {insight.confidence ? (
-                      <span className="rounded-full bg-white/7 px-3 py-1 text-xs text-slate-300">
-                        置信度 {insight.confidence}
-                      </span>
-                    ) : null}
+                  <div className="space-y-2">
+                    {source.items.slice(0, 4).map((entry) => (
+                      <a key={entry.link} href={entry.link} target="_blank" rel="noreferrer" className="block rounded-lg border border-white/[0.04] bg-black/20 px-4 py-3 transition hover:border-sky-500/15 hover:bg-sky-500/4">
+                        <div className="text-[11px] text-slate-500">{entry.publishedAt ? formatDateTime(entry.publishedAt) : "时间未知"}</div>
+                        <div className="mt-0.5 text-sm font-medium text-white">{entry.title}</div>
+                        {entry.summary && <p className="mt-1 text-xs leading-relaxed text-slate-400 line-clamp-2">{entry.summary}</p>}
+                      </a>
+                    ))}
                   </div>
-                  <p className="mt-3 text-sm leading-7 text-slate-300">
-                    {insight.body}
-                  </p>
-                  {insight.tags?.length ? (
-                    <div className="mt-4 flex flex-wrap gap-2">
-                      {insight.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full bg-sky-400/10 px-3 py-1 text-xs text-sky-200"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  ) : null}
-                </article>
+                </div>
               ))}
             </div>
-          </section>
-        </aside>
-      </section>
+
+            <aside className="space-y-3">
+              <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+                <h3 className="mb-4 text-sm font-semibold text-white">今日分析</h3>
+                <div className="space-y-3">
+                  {snapshot.insights.map((insight) => (
+                    <div key={insight.title} className="rounded-lg border border-white/[0.04] bg-white/[0.02] p-4">
+                      <div className="mb-2 flex items-start justify-between gap-2">
+                        <h4 className="text-sm font-medium text-white">{insight.title}</h4>
+                        {insight.confidence && (
+                          <span className="shrink-0 rounded-md bg-white/[0.04] px-2 py-0.5 text-[10px] font-medium text-slate-400">{insight.confidence}</span>
+                        )}
+                      </div>
+                      <p className="text-xs leading-relaxed text-slate-400">{insight.body}</p>
+                      {insight.tags?.length ? (
+                        <div className="mt-2 flex flex-wrap gap-1">
+                          {insight.tags.map((t) => (
+                            <span key={t} className="rounded-md bg-white/[0.03] px-2 py-0.5 text-[10px] text-slate-500">{t}</span>
+                          ))}
+                        </div>
+                      ) : null}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <footer className="border-t border-white/[0.04] pt-6 text-center text-xs text-slate-600">
+          自动生成 · 数据仅供参考 · 不构成投资建议
+        </footer>
+      </div>
     </main>
   );
 }
