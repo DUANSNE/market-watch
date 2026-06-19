@@ -5,9 +5,10 @@ import BondCharts from "./Chart";
 
 export default async function BondsPage() {
   const [config, snapshot] = await Promise.all([getTrackingConfig(), getDashboardSnapshot()]);
-  const finance = snapshot.finance;
+  const bondIds = ["us10y", "us30y", "shy", "us5y", "us3m", "china-bond", "intl-treas", "em-bonds"];
+  const finance = snapshot.finance.filter((f) => bondIds.includes(f.id));
 
-  const regions = ["🇺🇸 美国", "🇪🇺 欧洲", "🇨🇳 中国", "🌍 全球"];
+  const regions = ["🇺🇸 美国", "🇨🇳 中国", "🌍 全球"];
 
   return (
     <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-10 md:px-8 lg:px-10">

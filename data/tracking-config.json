@@ -1,18 +1,35 @@
 {
   "site": {
-    "title": "Global Bond Watch",
-    "subtitle": "全球债券市场 · 长短期收益率 · 对数坐标互动图表",
+    "title": "Global Market Watch",
+    "subtitle": "债券市场 · AI 产业链 · 大宗商品 · 宏观指标",
     "refreshCadence": "daily"
   },
   "financeTargets": [
     { "id": "us10y",      "name": "US 10Y 收益率",      "symbol": "^TNX",     "market": "🇺🇸 美国",      "category": "长债",   "thesis": "全球利率锚" },
     { "id": "us30y",      "name": "US 30Y 收益率",      "symbol": "^TYX",     "market": "🇺🇸 美国",      "category": "超长债", "thesis": "长端利率与通胀预期" },
-    { "id": "shy",       "name": "US 2Y (SHY)",    "symbol": "SHY",      "market": "🇺🇸 美国",      "category": "短债",   "thesis": "短端利率与 Fed 政策预期，1-3 年国债 ETF" },
+    { "id": "shy",        "name": "US 2Y (SHY ETF)",   "symbol": "SHY",      "market": "🇺🇸 美国",      "category": "短债",   "thesis": "短端利率与 Fed 政策预期，1-3 年国债 ETF" },
     { "id": "us5y",       "name": "US 5Y 收益率",       "symbol": "^FVX",     "market": "🇺🇸 美国",      "category": "中债",   "thesis": "中期利率" },
     { "id": "us3m",       "name": "US 3M T-Bill",      "symbol": "^IRX",     "market": "🇺🇸 美国",      "category": "短债",   "thesis": "最短端、现金等价物基准" },
-    { "id": "china-bond", "name": "中国国债",           "symbol": "CBND",     "market": "🇨🇳 中国",      "category": "综合",   "thesis": "中国国债 ETF，人民币利率市场" },
+    { "id": "china-bond", "name": "中国国债 ETF",       "symbol": "CBND",     "market": "🇨🇳 中国",      "category": "综合",   "thesis": "人民币利率市场 ETF" },
     { "id": "intl-treas", "name": "国际国债 (除美国)",  "symbol": "BWX",      "market": "🌍 全球",      "category": "综合",   "thesis": "发达市场国债除美国" },
-    { "id": "em-bonds",   "name": "新兴市场国债",       "symbol": "EMB",      "market": "🌍 全球",      "category": "综合",   "thesis": "新兴市场主权债" }
+    { "id": "em-bonds",   "name": "新兴市场国债",       "symbol": "EMB",      "market": "🌍 全球",      "category": "综合",   "thesis": "新兴市场主权债" },
+
+    { "id": "sp500",      "name": "S&P 500",            "symbol": "^GSPC",    "market": "🇺🇸 美股",      "category": "指数",   "thesis": "美国大盘基准" },
+    { "id": "nasdaq",     "name": "Nasdaq",             "symbol": "^IXIC",    "market": "🇺🇸 美股",      "category": "指数",   "thesis": "成长科技风格" },
+    { "id": "apple",      "name": "Apple",              "symbol": "AAPL",     "market": "🇺🇸 美股",      "category": "个股",   "thesis": "消费电子与科技龙头" },
+    { "id": "nvidia",     "name": "Nvidia",             "symbol": "NVDA",     "market": "🇺🇸 美股",      "category": "个股",   "thesis": "AI 算力核心" },
+    { "id": "sox",        "name": "SOX",                "symbol": "^SOX",     "market": "AI 链",        "category": "半导体", "thesis": "AI 资本开支的直接映射" },
+    { "id": "crude",      "name": "WTI 原油",           "symbol": "CL=F",     "market": "大宗商品",      "category": "能源",   "thesis": "能源通胀与供给扰动" },
+    { "id": "gold",       "name": "黄金",               "symbol": "GC=F",     "market": "大宗商品",      "category": "贵金属", "thesis": "避险资产与实际利率敏感" },
+    { "id": "copper",     "name": "铜",                 "symbol": "HG=F",     "market": "大宗商品",      "category": "工业金属", "thesis": "全球制造业晴雨表" },
+    { "id": "dxy",        "name": "DXY 美元指数",       "symbol": "DX-Y.NYB", "market": "宏观",          "category": "汇率",   "thesis": "全球流动性与大宗定价" },
+    { "id": "vix",        "name": "VIX 恐慌指数",       "symbol": "^VIX",     "market": "宏观",          "category": "波动率", "thesis": "尾部风险温度计" },
+    { "id": "nikkei",     "name": "Nikkei 225",         "symbol": "^N225",    "market": "🇯🇵 日本",      "category": "指数",   "thesis": "亚太风险偏好" },
+    { "id": "shanghai",   "name": "上证指数",           "symbol": "000001.SS","market": "🇨🇳 中国 A 股",  "category": "指数",   "thesis": "A 股政策敏感与宏观情绪" },
+    { "id": "hang-seng",  "name": "Hang Seng",          "symbol": "^HSI",     "market": "🇭🇰 港股",      "category": "指数",   "thesis": "中概与亚洲市场风险偏好" },
+    { "id": "euro-stoxx", "name": "Euro Stoxx 50",      "symbol": "^STOXX50E","market": "🇪🇺 欧洲",      "category": "指数",   "thesis": "欧元区蓝筹" },
+    { "id": "ftse100",    "name": "FTSE 100",           "symbol": "^FTSE",    "market": "🇬🇧 英国",      "category": "指数",   "thesis": "英国大盘" },
+    { "id": "dax",        "name": "DAX",                "symbol": "^GDAXI",   "market": "🇩🇪 德国",      "category": "指数",   "thesis": "德国工业与出口基准" }
   ],
   "contentTargets": [
     { "id": "federal-reserve", "name": "美联储新闻", "kind": "rss", "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml", "homepage": "https://www.federalreserve.gov/newsevents.htm" },
